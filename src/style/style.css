@@ -1,0 +1,65 @@
+:root {
+    --primary: #111111;
+    --secondary: #f0f0f0;
+    --tertiary: #c4c4c4;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background: var(--primary);
+  }
+  
+  .nav-link {
+    transition: color 200ms ease-in-out, transform 200ms ease-in-out;
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+  
+  nav div img[alt="react-logo"] {
+    animation: spin 25000ms infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      rotate: 0;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  .skill:hover {
+    > img {
+      scale: 1.1;
+    }
+    > p {
+      color: var(--secondary);
+    }
+  }
+  
+  #scroll-to-top:hover > *,
+  #scroll-to-top:active > * {
+    color: var(--secondary);
+  }
+  
+  /* https://reactcommunity.org/react-modal/styles/transitions/ */
+  .ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+  
+  .ReactModal__Overlay--after-open{
+    opacity: 1;
+  }
+  
