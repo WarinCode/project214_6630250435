@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { Ref, inject } from 'vue';
 import Container from '../containers/Container.vue';
 import Title from '../Title.vue';
 import DownloadButton from '../DownloadButton.vue';
 import BackgroundLayer from '../BackgroundLayer.vue';
+import { UserProviderType } from '@/types';
+import UserModel from '@/types/models/user';
+
+const data = inject<UserProviderType>("user");
+const user = <Ref<UserModel>>data?.user;
 </script>
 
 <template>
@@ -11,7 +17,7 @@ import BackgroundLayer from '../BackgroundLayer.vue';
             <div class="pt-12 w-1/2">
                 <Title title="About" />
                 <p class="font-k2d leading-8 w-full text-wrap text-tertiary">
-                    สวัสดีเราชื่อ วรินทร์ สายปัญญา รหัสนิสิต 6630250435 นิสิตชั้นปีที่ 2 คณะ วิทยาศาสตร์ ศรีราชา สาขา
+                    สวัสดีเราชื่อ {{ user?.fullname }} รหัสนิสิต {{ user?.studentId }} นิสิตชั้นปีที่ 2 คณะ วิทยาศาสตร์ ศรีราชา สาขา
                     วิทยาการคอมพิวเตอร์ (CS27) มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตศรีราชา (KU83) อายุ 20 ปี เวลาว่าง
                     ชอบเขียนโค้ดและอ่านหนังสือภาษาโปรแกรม เป้าหมายหลักในอนาคตต้องการเป็น Full Stack Developer
                 </p>

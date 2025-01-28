@@ -1,4 +1,4 @@
-import { TitleObject, Skill, NavItemData, Icon, CardData } from ".";
+import { TitleObject, Skill, NavItemData, CardData } from ".";
 import SchoolModel from "./models/school";
 import UniversityModel from "./models/university";
 
@@ -28,7 +28,7 @@ export interface ContactButtonProps extends ButtonProps, IconProps {
     onClick?: () => void;
 }
 
-export interface ActionButtonProps extends ButtonProps, Icon {
+export interface ActionButtonProps extends ButtonProps, IconProps {
     type: "button" | "submit" | "reset" | undefined;
     onClick(): void;
 }
