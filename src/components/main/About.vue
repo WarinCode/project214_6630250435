@@ -3,7 +3,6 @@ import Container from '../containers/Container.vue';
 import Title from '../Title.vue';
 import DownloadButton from '../DownloadButton.vue';
 import BackgroundLayer from '../BackgroundLayer.vue';
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 </script>
 
 <template>
@@ -17,7 +16,8 @@ import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
                     ชอบเขียนโค้ดและอ่านหนังสือภาษาโปรแกรม เป้าหมายหลักในอนาคตต้องการเป็น Full Stack Developer
                 </p>
                 <div class="mt-8">
-                    <DownloadButton text="ดาวโหลด์ CV" to="/assets/cv/resume.pdf" :icon="faFilePdf" />
+                    <DownloadButton text="ดาวโหลด์ CV" to="/assets/cv/resume.pdf"
+                        icon-path="assets/svgs/file-lines-solid.svg" />
                 </div>
             </div>
             <div class="relative w-1/2">

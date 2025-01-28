@@ -21,3 +21,5 @@ export interface Icon {
 export interface CardData<T extends object> {
   data: T;
 }
+
+export type SomeValue<T> = T | any | unknown;

@@ -12,7 +12,7 @@ defineProps<UniversityCardProps>();
 </script>
 
 <template>
-    <CardContainer>
+    <CardContainer classname="bg-primary w-[450px] h-[420px] overflow-hidden">
         <CardImageTop :src="data.img" :alt="data.universityName" />
         <CardBody>
             <template #card-body>
@@ -20,10 +20,11 @@ defineProps<UniversityCardProps>();
                     <template #card-header>
                         <CardTitle :title="data.universityName" classname="text-base" />
                         <span class="absolute right-4 text-secondary">
-                            <CardLink :href="data.location" icon="" classname="text-xl cursor-pointer" />
-                            />
-                            <CardLink :href="data.facebookLink" icon="" classname="text-xl cursor-pointer ms-4" />
-                            />
+                            <CardLink :href="data.location" icon-path="/assets/svgs/location-dot-solid.svg"
+                                classname="text-xl cursor-pointer" />
+                            <CardLink :href="data.facebookLink"
+                                icon-path="/assets/svgs/arrow-up-right-from-square-solid.svg"
+                                classname="text-xl cursor-pointer ms-4" />
                         </span>
                     </template>
                 </CardHeader>

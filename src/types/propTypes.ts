@@ -19,13 +19,13 @@ export interface ButtonProps extends ClassName {
     text: string;
 }
 
-export interface DownloadButtonProps extends ButtonProps, Icon {
+export interface DownloadButtonProps extends ButtonProps, IconProps {
     to: string;
 }
 
-export interface ContactButtonProps extends ButtonProps, Icon {
+export interface ContactButtonProps extends ButtonProps, IconProps {
     href: string;
-    onClick(): void;
+    onClick?: () => void;
 }
 
 export interface ActionButtonProps extends ButtonProps, Icon {
@@ -34,13 +34,15 @@ export interface ActionButtonProps extends ButtonProps, Icon {
 }
 
 export interface LineProps extends ClassName { }
-
 export interface TitleProps extends TitleObject { }
 export interface SkillProps extends Skill { }
 export interface NavLinkProps extends NavItemData { }
 
-export interface SchoolCardProps extends ClassName, CardData<SchoolModel> { }
+export interface IconProps extends ClassName {
+    iconPath: string;
+}
 
+export interface SchoolCardProps extends ClassName, CardData<SchoolModel> { }
 export interface UniversityCardProps extends ClassName, CardData<UniversityModel> { }
 
 export interface CardImageTopProps extends ClassName {
@@ -53,6 +55,6 @@ export interface CardHeaderProps extends ClassName { }
 export interface CardBodyProps extends ClassName { }
 export interface CardDetailsProps extends ClassName { }
 
-export interface CardLinkProps extends Icon, ClassName {
+export interface CardLinkProps extends IconProps, ClassName {
     href?: string;
 }

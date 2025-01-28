@@ -1,4 +1,5 @@
 import { NavItemData, Skill } from "@/types";
+import { ContactButtonProps } from "@/types/propTypes";
 
 export const navItemData: NavItemData[] = [
     {
@@ -95,6 +96,32 @@ export const skills: Skill[] = [
     {
         name: "DataGrip",
         path: "/assets/icons/DataGrip.svg",
+    },
+];
+
+export const contactButtons: ContactButtonProps[] = [
+    {
+        text: "email",
+        href: "mailto:warin.sai@ku.th",
+        iconPath: "/assets/svgs/envelope-solid.svg"
+    },
+    {
+        text: "instagram",
+        href: "https://www.instagram.com/warin.dev/",
+        iconPath: "/assets/svgs/instagram-brands-solid.svg",
+    },
+    {
+        text: "github",
+        href: "https://github.com/WarinCode",
+        iconPath: "/assets/svgs/github-brands-solid.svg"
+    },
+    {
+        text: "line",
+        href: "",
+        iconPath: "/assets/svgs/line-brands-solid.svg",
+        onClick: (): void => {
+            alert("Line ID: varin471");
+        },
     },
 ];
 

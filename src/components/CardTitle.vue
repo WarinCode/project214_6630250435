@@ -5,7 +5,7 @@ defineProps < CardTitleProps > ();
 </script>
 
 <template>
-    <h3 className="text-lg text-secondary" :class="classname">
+    <h3 class="text-lg text-secondary" :class="classname">
         {{ title }}
     </h3>
 </template>
