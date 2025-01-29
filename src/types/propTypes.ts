@@ -1,4 +1,5 @@
-import { TitleObject, Skill, NavItemData, CardData } from ".";
+import { InputHTMLAttributes, SelectHTMLAttributes, HTMLAttributes } from "vue";
+import { TitleObject, Skill, NavItemData, CardData, IconType, OnClick } from ".";
 import CourseModel, { Courses } from "./models/course";
 import SchoolModel from "./models/school";
 import UniversityModel from "./models/university";
@@ -18,6 +19,20 @@ export interface CardContainerProps extends ClassName { }
 export interface BackgroundLayerProps
     extends ClassName { }
 
+interface InputComponentProps<T extends HTMLAttributes> {
+    attributes?: T;
+    model: string | number;
+    id: string;
+    labelName: string;
+}
+
+export interface InputWrapperProps extends ClassName { }
+export interface InputFieldProps extends InputComponentProps<InputHTMLAttributes> {
+}
+
+export interface SelectFieldProps extends InputComponentProps<SelectHTMLAttributes> {
+    optionList: string[] | number[];
+}
 export interface ButtonProps extends ClassName {
     text: string;
 }
@@ -26,14 +41,12 @@ export interface DownloadButtonProps extends ButtonProps, IconProps {
     to: string;
 }
 
-export interface ContactButtonProps extends ButtonProps, IconProps {
+export interface ContactButtonProps extends ButtonProps, IconProps, OnClick {
     href: string;
-    onClick?: () => void;
 }
 
-export interface ActionButtonProps extends ButtonProps, IconProps {
+export interface ActionButtonProps extends ButtonProps, IconProps, OnClick {
     type: "button" | "submit" | "reset" | undefined;
-    onClick(): void;
 }
 
 export interface LineProps extends ClassName { }
@@ -41,8 +54,7 @@ export interface TitleProps extends TitleObject { }
 export interface SkillProps extends Skill { }
 export interface NavLinkProps extends NavItemData { }
 
-export interface IconProps extends ClassName {
-    iconPath: string;
+export interface IconProps extends ClassName, IconType, OnClick {
 }
 
 export interface SchoolCardProps extends ClassName, CardData<SchoolModel> { }
@@ -63,6 +75,7 @@ export interface CardLinkProps extends IconProps, ClassName {
 }
 
 export interface CourseProps extends CourseModel { }
+
 export interface CoursesProps {
     courses: Courses;
 }

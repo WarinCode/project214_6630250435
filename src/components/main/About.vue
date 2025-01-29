@@ -17,9 +17,11 @@ const user = <Ref<UserModel>>data?.user;
             <div class="pt-12 w-1/2">
                 <Title title="About" />
                 <p class="font-k2d leading-8 w-full text-wrap text-tertiary">
-                    สวัสดีเราชื่อ {{ user?.fullname }} รหัสนิสิต {{ user?.studentId }} นิสิตชั้นปีที่ 2 คณะ วิทยาศาสตร์ ศรีราชา สาขา
-                    วิทยาการคอมพิวเตอร์ (CS27) มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตศรีราชา (KU83) อายุ 20 ปี เวลาว่าง
-                    ชอบเขียนโค้ดและอ่านหนังสือภาษาโปรแกรม เป้าหมายหลักในอนาคตต้องการเป็น Full Stack Developer
+                    สวัสดีเราชื่อ {{ user?.fullname }} รหัสนิสิต {{ user?.studentId }}
+                    นิสิตชั้นปีที่ {{ user?.sophomore }} คณะ {{ user?.faculty }} สาขา
+                    {{ user?.major }} (CS27) {{ user?.university }} (KU83) อายุ {{ user?.age }} ปี
+                    เวลาว่าง {{ user?.hobbies }} เป้าหมายหลักในอนาคตต้องการเป็น Full Stack
+                    Developer
                 </p>
                 <div class="mt-8">
                     <DownloadButton text="ดาวโหลด์ CV" to="/assets/cv/resume.pdf"

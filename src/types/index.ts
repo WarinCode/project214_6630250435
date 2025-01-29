@@ -25,3 +25,11 @@ export interface UserProviderType {
   user: Ref<UserModel | null>;
   isError: Ref<boolean>;
 }
+
+export interface IconType {
+  iconPath: string;
+}
+
+export interface OnClick {
+  onClick?: (event: MouseEvent) => void;
+}
