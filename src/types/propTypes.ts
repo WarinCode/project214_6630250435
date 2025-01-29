@@ -1,10 +1,13 @@
 import { TitleObject, Skill, NavItemData, CardData } from ".";
+import CourseModel, { Courses } from "./models/course";
 import SchoolModel from "./models/school";
 import UniversityModel from "./models/university";
 
 interface ClassName {
     classname?: string;
 }
+
+export interface AppContainerProps extends ClassName { }
 
 export interface ContainerProps extends ClassName {
     id: string;
@@ -57,4 +60,13 @@ export interface CardDetailsProps extends ClassName { }
 
 export interface CardLinkProps extends IconProps, ClassName {
     href?: string;
+}
+
+export interface CourseProps extends CourseModel { }
+export interface CoursesProps {
+    courses: Courses;
+}
+
+export interface GPAXProps {
+    gpax: number
 }
