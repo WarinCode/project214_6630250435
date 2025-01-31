@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, SelectHTMLAttributes, HTMLAttributes } from "vue";
+import { InputHTMLAttributes, SelectHTMLAttributes, HTMLAttributes, Ref, VNodeRef } from "vue";
 import { TitleObject, Skill, NavItemData, CardData, IconType, OnClick } from ".";
 import CourseModel, { Courses } from "./models/course";
 import SchoolModel from "./models/school";
@@ -21,12 +21,16 @@ export interface BackgroundLayerProps
 
 interface InputComponentProps<T extends HTMLAttributes> {
     attributes?: T;
-    model: string | number;
+    onInput: (e: Event) => void;
+    value?: string | number;
     id: string;
     labelName: string;
 }
 
 export interface InputWrapperProps extends ClassName { }
+export interface FormContainerProps extends ClassName { 
+    onSubmit: () => void;
+}
 export interface InputFieldProps extends InputComponentProps<InputHTMLAttributes> {
 }
 
@@ -45,8 +49,9 @@ export interface ContactButtonProps extends ButtonProps, IconProps, OnClick {
     href: string;
 }
 
-export interface ActionButtonProps extends ButtonProps, IconProps, OnClick {
+export interface ActionButtonProps extends ButtonProps, IconProps, Partial<OnClick> {
     type: "button" | "submit" | "reset" | undefined;
+    iconClassName?: string;
 }
 
 export interface LineProps extends ClassName { }

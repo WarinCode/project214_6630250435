@@ -10,6 +10,7 @@ import Skills from "./components/main/Skills.vue";
 import AcademicResults from "./components/main/AcademicResults.vue";
 import Contact from './components/main/Contact.vue';
 import Footer from './components/main/Footer.vue';
+import ScrollToTop from "./components/ScrollToTop.vue";
 
 const isLoading = ref<boolean>(true);
 
@@ -18,14 +19,15 @@ onMounted((): void => {
     isLoading.value = false;
   }, 2000);
 });
+
 </script>
 
 <template>
   <AppContainer v-if="isLoading" classname="h-screen w-full flex items-center justify-center">
     <Loading />
   </AppContainer>
-  <UserProvider v-else>
-    <AppContainer>
+  <AppContainer v-else>
+    <UserProvider>
       <Navbar />
       <About />
       <Education />
@@ -33,6 +35,7 @@ onMounted((): void => {
       <AcademicResults />
       <Contact />
       <Footer />
-    </AppContainer>
-  </UserProvider>
+      <ScrollToTop />
+    </UserProvider>
+  </AppContainer>
 </template>

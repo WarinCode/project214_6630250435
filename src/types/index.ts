@@ -33,3 +33,8 @@ export interface IconType {
 export interface OnClick {
   onClick?: (event: MouseEvent) => void;
 }
+
+export interface ScrollValues {
+  x: number;
+  y: number;
+}

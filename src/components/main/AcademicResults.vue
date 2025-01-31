@@ -6,12 +6,13 @@ import Title from "../Title.vue";
 import Line from "../Line.vue";
 import Courses from "../Courses.vue";
 import GPAX from "../GPAX.vue";
+import AddDataForm from "../AddDataForm.vue";
 import CourseModel from "@/types/models/course";
 import { getLocalhost } from "@/utils";
 import { GPAXType } from "@/types/models/gpa";
 
 const courses = ref<CourseModel[]>([]);
-const gpax = ref<GPAXType>({ gpax: 0 });
+const gpaxObject = ref<GPAXType>({ gpax: 0 });
 
 const fetchData = async <T = any>(url: string, ref: Ref<T>): Promise<void> => {
     try {
@@ -34,7 +35,7 @@ onMounted(async (): Promise<void> => {
     const url: string = getLocalhost();
 
     await fetchData<CourseModel[]>(url + "/courses", courses);
-    await fetchData<GPAXType>(url + "/gpax", gpax);
+    await fetchData<GPAXType>(url + "/gpax", gpaxObject);
 });
 </script>
 
@@ -45,7 +46,7 @@ onMounted(async (): Promise<void> => {
             <Title title="Academic Results" />
             <p class="font-k2d mb-12">แบบฟอร์มสำหรับเพิ่มผลการเรียน</p>
         </div>
-        <!-- <AddDataForm /> -->
+        <AddDataForm />
         <Line classname="my-24" />
         <div>
             <p v-if="courses.length === 0" class="font-k2d mb-12 text-center">
@@ -53,7 +54,7 @@ onMounted(async (): Promise<void> => {
             </p>
             <div v-else class="flex items-center justify-between mb-12">
                 <p class="font-k2d">ผลการเรียนทั้งหมด</p>
-                <GPAX :gpax="gpax.gpax" />
+                <GPAX :gpax="gpaxObject.gpax" />
             </div>
             <Courses :courses="courses" />
         </div>

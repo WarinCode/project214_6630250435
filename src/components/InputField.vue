@@ -10,7 +10,9 @@ defineProps<InputFieldProps>();
         <label :for="id" class="block mb-4 text-xl">
             {{ labelName }}
         </label>
-        <input :="attributes" v-model="model"
+        <input :="attributes"
+            :value="value"
+            @input="onInput"
             class="outline-none w-3/4 h-12 border-tertiary border-2 rounded bg-primary ps-2 transition delay-150 ease-linear focus:border-secondary"
             :id="id" required />
     </InputWrapper>
