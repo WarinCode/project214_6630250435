@@ -81,10 +81,6 @@ export interface CardLinkProps extends IconProps, ClassName {
 
 export interface CourseProps extends CourseModel { }
 
-export interface CoursesProps {
-    courses: Courses;
-}
-
 export interface GPAXProps {
     gpax: number
 }

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { CoursesProps } from '@/types/propTypes';
+import { inject } from 'vue';
+import { CourseProviderType } from '@/types';
 import Course from './Course.vue';
 
-defineProps<CoursesProps>();
+const { courses } = inject<CourseProviderType>("course") as CourseProviderType;
 </script>
 
 <template>

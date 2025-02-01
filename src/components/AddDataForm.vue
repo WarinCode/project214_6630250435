@@ -1,20 +1,16 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, inject } from "vue";
 import axios, { AxiosError } from "axios";
 import FormContainer from './containers/FormContainer.vue';
 import InputField from './InputField.vue';
 import SelectField from './SelectField.vue';
 import ActionButton from './ActionButton.vue';
+import { CourseProviderType } from "@/types";
 import CourseModel, { CourseRef } from '@/types/models/course';
 import { grades, credits } from '@/constants';
+import { getRefValues, getCurrentId } from "@/utils";
 
-// const course: CourseModel = {
-//     id: "",
-//     courseName: "",
-//     courseCode: "",
-//     grade: "",
-//     credit: 0
-// }
+const { courses, fetchData } = inject<CourseProviderType>("course") as CourseProviderType;
 
 const course: CourseRef = {
     id: ref<string>(""),
@@ -22,6 +18,14 @@ const course: CourseRef = {
     courseCode: ref<string>(""),
     grade: ref<string>(""),
     credit: ref<number>(0)
+}
+
+const clearInputs = (): void => {
+    course.id.value = getCurrentId(courses.value);
+    course.courseName.value = "";
+    course.courseCode.value = "";
+    course.grade.value = "";
+    course.credit.value = 0;
 }
 
 const handleInput = (key: keyof CourseRef, e: Event): void => {
@@ -34,17 +38,18 @@ const handleInput = (key: keyof CourseRef, e: Event): void => {
 }
 
 const handleSubmit = async (): Promise<void> => {
+    // const payload = getRefValues(course);
+ 
     // const payload = course;
 
-    try {
-        // const { data } = await axios.post("", payload);
-    } catch(e: unknown){
-        if(e instanceof AxiosError){
-            console.error(e.message);
-        }
-    }
+    // try {
+    //     // const { data } = await axios.post("", payload);
+    // } catch(e: unknown){
+    //     if(e instanceof AxiosError){
+    //         console.error(e.message);
+    //     }
+    // }
 }
-
 </script>
 
 <template>

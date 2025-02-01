@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { Ref, inject } from 'vue';
+import { inject } from 'vue';
 import Container from '../containers/Container.vue';
 import Title from '../Title.vue';
 import DownloadButton from '../DownloadButton.vue';
 import BackgroundLayer from '../BackgroundLayer.vue';
 import { UserProviderType } from '@/types';
-import UserModel from '@/types/models/user';
 
-const data = inject<UserProviderType>("user");
-const user = <Ref<UserModel>>data?.user;
+const { user } = inject<UserProviderType>("user") as UserProviderType;
 </script>
 
 <template>

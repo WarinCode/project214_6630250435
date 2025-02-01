@@ -1,5 +1,7 @@
 import { Ref } from "vue";
 import UserModel from "./models/user";
+import CourseModel from "./models/course";
+import { GPAXType } from "./models/gpa";
 
 export interface NavItemData {
   text: string;
@@ -24,6 +26,12 @@ export type SomeValue<T> = T | any | unknown;
 export interface UserProviderType {
   user: Ref<UserModel | null>;
   isError: Ref<boolean>;
+}
+
+export interface CourseProviderType {
+  courses: Ref<CourseModel[]>;
+  gpaxObject: Ref<GPAXType>;
+  fetchData: <T>(url: string, ref: Ref<T>) => Promise<void>;
 }
 
 export interface IconType {
