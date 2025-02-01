@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, inject } from "vue";
-import axios, { AxiosError } from "axios";
+import { ref, inject } from "vue";
+import axios, { HttpStatusCode, AxiosError } from "axios";
+import Swal from "sweetalert2";
 import FormContainer from './containers/FormContainer.vue';
 import InputField from './InputField.vue';
 import SelectField from './SelectField.vue';
@@ -8,7 +9,7 @@ import ActionButton from './ActionButton.vue';
 import { CourseProviderType } from "@/types";
 import CourseModel, { CourseRef } from '@/types/models/course';
 import { grades, credits } from '@/constants';
-import { getRefValues, getCurrentId } from "@/utils";
+import { getRefValues, getCurrentId, formValidation, getLocalhost } from "@/utils";
 
 const { courses, fetchData } = inject<CourseProviderType>("course") as CourseProviderType;
 
@@ -20,12 +21,19 @@ const course: CourseRef = {
     credit: ref<number>(0)
 }
 
-const clearInputs = (): void => {
+
+function clearInputs(): void {
     course.id.value = getCurrentId(courses.value);
     course.courseName.value = "";
     course.courseCode.value = "";
     course.grade.value = "";
     course.credit.value = 0;
+
+    document.querySelector<HTMLInputElement>("#courseName")!.value = "";
+    document.querySelector<HTMLInputElement>("#courseCode")!.value = "";
+    document.querySelector<HTMLSelectElement>("#grade")!.value = "";
+    document.querySelector<HTMLSelectElement>("#credit")!.value = "";
+
 }
 
 const handleInput = (key: keyof CourseRef, e: Event): void => {
@@ -37,18 +45,43 @@ const handleInput = (key: keyof CourseRef, e: Event): void => {
     }
 }
 
-const handleSubmit = async (): Promise<void> => {
-    // const payload = getRefValues(course);
- 
-    // const payload = course;
 
-    // try {
-    //     // const { data } = await axios.post("", payload);
-    // } catch(e: unknown){
-    //     if(e instanceof AxiosError){
-    //         console.error(e.message);
-    //     }
-    // }
+const handleSubmit = async (): Promise<void> => {
+    const payload: CourseModel = {
+        ...getRefValues(course),
+        id: getCurrentId(courses.value)
+    };
+
+    try {
+        formValidation(payload, courses.value);
+
+        const url = getLocalhost() + "/courses";
+        const { status } = await axios.post<CourseModel>(url, payload);
+
+        if (status === HttpStatusCode.Created) {
+            await fetchData<CourseModel[]>(url, courses);
+            await Swal.fire({
+                title: "สำเร็จ",
+                text: "บันทึกรายวิชาใหม่สำเร็จ",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 2000
+            })
+            return;
+        }
+
+        throw new Error("ไม่สามารถเพิ่มรายวิชาได้!");
+    } catch (e: unknown) {
+        if (e instanceof AxiosError || e instanceof Error) {
+            Swal.fire({
+                title: "เกิดข้อผิดพลาดขึ้น",
+                text: e.message,
+                icon: "error",
+            })
+        }
+    } finally {
+        clearInputs();
+    }
 }
 </script>
 

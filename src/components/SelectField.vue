@@ -10,7 +10,7 @@ defineProps<SelectFieldProps>();
         <label :for="id" class="block mb-4 text-xl">
             {{ labelName }}
         </label>
-        <select :="attributes" :value="value" @change="onInput" class="w-3/4 h-12 outline-none p-2 cursor-pointer bg-primary border-tertiary border-2 rounded text-tertiary transition delay-150 ease-linear
+        <select :id="id" :="attributes" :value="value" @change="onInput" class="w-3/4 h-12 outline-none p-2 cursor-pointer bg-primary border-tertiary border-2 rounded text-tertiary transition delay-150 ease-linear
            hover:border-secondary" required>
             <option v-for="item in optionList" :value="item">{{ item }}</option>
         </select>
