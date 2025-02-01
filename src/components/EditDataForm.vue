@@ -55,6 +55,7 @@ const handleEdit = async (): Promise<void> => {
         const { status, data } = await axios.put<CourseModel>(url + `/${id}`, payload);
 
         if (status === HttpStatusCode.Ok) {
+            defaultValue.value = data;
             await fetchData<CourseModel[]>(url, courses);
             await Swal.fire({
                 title: "สำเร็จ",
@@ -63,7 +64,6 @@ const handleEdit = async (): Promise<void> => {
                 showConfirmButton: false,
                 timer: 2000
             })
-            defaultValue.value = data;
             await handleClose();
             return;
         }
