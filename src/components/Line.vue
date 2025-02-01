@@ -5,5 +5,5 @@ defineProps<LineProps>();
 </script>
 
 <template>
-    <div class="bg-[#C6C6C6] w-full h-[0.5px] opacity-30 my-24" :class="classname"></div>
+    <div class="bg-line w-full h-[0.5px] opacity-10 my-24" :class="classname"></div>
 </template>

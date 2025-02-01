@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent inline-block mb-8 max-[450px]:text-3xl max-[360px]:text-3xl">
+    <h1 class="text-5xl font-bold bg-gradient-to-r from-ocean-green to-pickled-bluewood bg-clip-text text-transparent inline-block mb-8">
         < {{ title }} />
     </h1>
 </template>

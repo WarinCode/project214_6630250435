@@ -6,7 +6,7 @@ defineProps<NavLinkProps>();
 </script>
 
 <template>
-  <li class="nav-link text-tertiary">
+  <li class="nav-link text-tertiary transition-colors ease-in delay-200 hover:text-ocean-green">
     <a :href="href">{{ text }}</a>
   </li>
 </template>

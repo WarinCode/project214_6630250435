@@ -21,9 +21,7 @@ const course: CourseRef = {
     credit: ref<number>(0)
 }
 
-
-function clearInputs(): void {
-    course.id.value = getCurrentId(courses.value);
+const clearInputs = (): void => {
     course.courseName.value = "";
     course.courseCode.value = "";
     course.grade.value = "";
@@ -33,7 +31,6 @@ function clearInputs(): void {
     document.querySelector<HTMLInputElement>("#courseCode")!.value = "";
     document.querySelector<HTMLSelectElement>("#grade")!.value = "";
     document.querySelector<HTMLSelectElement>("#credit")!.value = "";
-
 }
 
 const handleInput = (key: keyof CourseRef, e: Event): void => {
@@ -44,7 +41,6 @@ const handleInput = (key: keyof CourseRef, e: Event): void => {
         course[key].value = value;
     }
 }
-
 
 const handleSubmit = async (): Promise<void> => {
     const payload: CourseModel = {
@@ -62,7 +58,7 @@ const handleSubmit = async (): Promise<void> => {
             await fetchData<CourseModel[]>(url, courses);
             await Swal.fire({
                 title: "สำเร็จ",
-                text: "บันทึกรายวิชาใหม่สำเร็จ",
+                text: "เพิ่มรายวิชาใหม่สำเร็จ",
                 icon: "success",
                 showConfirmButton: false,
                 timer: 2000
@@ -87,7 +83,7 @@ const handleSubmit = async (): Promise<void> => {
 
 <template>
     <FormContainer :on-submit="handleSubmit"
-        class="mt-8 grid grid-cols-2 grid-rows-3 place-items-center text-tertiary font-k2d gap-y-12">
+        classname="mt-8 grid grid-cols-2 grid-rows-3 place-items-center text-tertiary font-k2d gap-y-12">
         <InputField id="courseName" label-name="ชื่อวิชา" :on-input="(e: Event): void => handleInput('courseName', e)"
             :attributes="{
                 type: 'text',

@@ -1,5 +1,6 @@
 import { NavItemData, Skill } from "@/types";
 import { ContactButtonProps } from "@/types/propTypes";
+import Swal from "sweetalert2";
 
 export const navItemData: NavItemData[] = [
     {
@@ -120,7 +121,11 @@ export const contactButtons: ContactButtonProps[] = [
         href: "",
         iconPath: "/assets/svgs/line-brands-solid.svg",
         onClick: (): void => {
-            alert("Line ID: varin471");
+            Swal.fire({
+                title: "Line ID",
+                icon: "info",
+                text: "Line ID: varin471"
+            })
         },
     },
 ];

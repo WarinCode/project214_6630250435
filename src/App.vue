@@ -34,8 +34,8 @@ onMounted((): void => {
       <Skills />
       <AcademicResults />
       <Contact />
-      <Footer />
       <ScrollToTop />
+      <Footer />
     </UserProvider>
   </AppContainer>
 </template>

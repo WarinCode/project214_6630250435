@@ -19,7 +19,7 @@ export interface CardContainerProps extends ClassName { }
 export interface BackgroundLayerProps
     extends ClassName { }
 
-interface InputComponentProps<T extends HTMLAttributes> {
+interface InputComponentProps<T extends HTMLAttributes> extends ClassName {
     attributes?: T;
     onInput: (e: Event) => void;
     value?: string | number;
@@ -83,4 +83,8 @@ export interface CourseProps extends CourseModel { }
 
 export interface GPAXProps {
     gpax: number
+}
+
+export interface EditDataFormProps extends CourseModel{
+    title: string;
 }
