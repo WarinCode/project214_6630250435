@@ -1,6 +1,6 @@
-import { ScrollValues } from "@/types";
+import { VueCustomHook, UseScroll } from "@/types/hooks";
 
-const useScroll = (): ScrollValues => {
+const useScroll = (): VueCustomHook<UseScroll> => {
     return { x: window.scrollX, y: window.scrollY };
 }
 

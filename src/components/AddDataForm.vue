@@ -83,7 +83,7 @@ const handleSubmit = async (): Promise<void> => {
 
 <template>
     <FormContainer :on-submit="handleSubmit"
-        classname="mt-8 grid grid-cols-2 grid-rows-3 place-items-center text-tertiary font-k2d gap-y-12">
+        classname="mt-8 grid grid-cols-2 grid-rows-3 place-items-center text-tertiary font-k2d gap-y-12 gap-x-32">
         <InputField id="courseName" label-name="ชื่อวิชา" :on-input="(e: Event): void => handleInput('courseName', e)"
             :attributes="{
                 type: 'text',

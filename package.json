@@ -13,6 +13,7 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fontsource/k2d": "^5.1.1",
     "@fontsource/poppins": "^5.1.1",
     "axios": "^1.7.9",

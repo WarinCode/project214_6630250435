@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, SelectHTMLAttributes, HTMLAttributes, Ref, VNodeRef } from "vue";
+import { InputHTMLAttributes, SelectHTMLAttributes, HTMLAttributes, Ref, VNodeRef, TextareaHTMLAttributes } from "vue";
 import { TitleObject, Skill, NavItemData, CardData, IconType, OnClick } from ".";
 import CourseModel, { Courses } from "./models/course";
 import SchoolModel from "./models/school";
@@ -36,6 +36,10 @@ export interface InputFieldProps extends InputComponentProps<InputHTMLAttributes
 
 export interface SelectFieldProps extends InputComponentProps<SelectHTMLAttributes> {
     optionList: string[] | number[];
+}
+
+export interface TextAreaFieldProps extends InputComponentProps<TextareaHTMLAttributes>{
+
 }
 export interface ButtonProps extends ClassName {
     text: string;

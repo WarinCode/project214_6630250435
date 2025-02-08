@@ -2,6 +2,7 @@ import { Ref } from "vue";
 import UserModel from "./models/user";
 import CourseModel from "./models/course";
 import { GPAXType } from "./models/gpa";
+import { Options } from "@emailjs/browser/es/types/Options";
 
 export interface NavItemData {
   text: string;
@@ -42,7 +43,23 @@ export interface OnClick {
   onClick?: (event: MouseEvent) => void;
 }
 
-export interface ScrollValues {
-  x: number;
-  y: number;
+export interface EmailJSOptions extends Options { }
+export interface EmailJSConfigs {
+  serviceID: string;
+  templateID: string;
+  options?: Options | string
+}
+
+export interface ContactRef {
+  senderName: Ref<string>;
+  email: Ref<string>;
+  message: Ref<string>;
+  date: Ref<string>
+}
+
+export interface ContactDetails {
+  senderName: string;
+  email: string;
+  message: string;
+  date: string
 }

@@ -3,6 +3,7 @@ import Container from '../containers/Container.vue';
 import Title from "../Title.vue";
 import Line from "../Line.vue";
 import ContactButton from '../ContactButton.vue';
+import ContactForm from '../ContactForm.vue';
 import { contactButtons } from '@/constants';
 </script>
 
@@ -11,7 +12,11 @@ import { contactButtons } from '@/constants';
         <Line />
         <Title title="Contact" />
         <div class="mb-8">
-            <p class="font-k2d">ช่องทางการติดต่อทั้งหมด</p>
+            <p class="font-k2d">ติดต่อผ่านแบบฟอร์มข้อมูลที่ติดต่อมาจะแจ้งเตือนผ่านอีเมลเรา</p>
+        </div>
+        <ContactForm />
+        <div class="mb-8">
+            <p class="font-k2d">ช่องทางการติดต่ออื่นๆ</p>
         </div>
         <div className="flex flex-wrap items-center justify-between">
             <ContactButton v-for="cb in contactButtons" :text="cb.text" :icon-path="cb.iconPath" :href="cb.href"

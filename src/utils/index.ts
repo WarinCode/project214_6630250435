@@ -1,5 +1,6 @@
 import { Ref } from "vue";
 import CourseModel, { CourseRef } from "@/types/models/course"
+import { ContactRef, ContactDetails } from "@/types";
 
 export const getLocalhost = (): string => {
     return "http://localhost:3000"
@@ -50,5 +51,18 @@ export const formValidation = ({ id, courseName, courseCode }: CourseModel, cour
 
     if (courses.some((c: CourseModel): boolean => (c.courseCode === courseCode || c.courseName === courseName) && c.id !== id)) {
         throw new Error("ไม่สามารถเพิ่มรายวิชาที่ซ้ำกันได้!");
+    }
+}
+
+export const getEnv = (key: keyof ImportMetaEnv): string => {
+    return import.meta.env[key];
+}
+
+export const getContactDetails = (contact: ContactRef): ContactDetails => {
+    return {
+        senderName: getRefValue<string>(contact.senderName),
+        email: getRefValue<string>(contact.email),
+        message: getRefValue<string>(contact.message),
+        date: getRefValue<string>(contact.date)
     }
 }

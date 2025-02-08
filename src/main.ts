@@ -7,6 +7,7 @@ import '@fontsource/k2d';
 import "sweetalert2";
 import { createVfm, Vfm } from 'vue-final-modal';
 import 'vue-final-modal/style.css'
+import "@emailjs/browser"
 
 const app: A<Element> = createApp(App);
 const vfm: Vfm = createVfm();
