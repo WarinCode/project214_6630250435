@@ -5,7 +5,7 @@ defineProps<CardContainerProps>();
 </script>
 
 <template>
-    <div :class="classname">
+    <div :class="classname" data-aos="zoom-in-up">
         <slot></slot>
     </div>
 </template>

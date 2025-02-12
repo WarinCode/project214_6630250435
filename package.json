@@ -16,6 +16,7 @@
     "@emailjs/browser": "^4.4.1",
     "@fontsource/k2d": "^5.1.1",
     "@fontsource/poppins": "^5.1.1",
+    "aos": "^2.3.4",
     "axios": "^1.7.9",
     "json-server": "^1.0.0-beta.3",
     "sweetalert2": "^11.15.10",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
+    "@types/aos": "^3.0.7",
     "@types/axios": "^0.9.36",
     "@types/node": "^22.10.2",
     "@vitejs/plugin-vue": "^5.2.1",

@@ -76,7 +76,7 @@ const handleSendEmail = async (): Promise<void> => {
                 type: 'email',
                 maxlength: 50,
             }" />
-        <TextAreaField id="text" labelName="ข้อความ" classname="w-full -mt-10"
+        <TextAreaField id="message" labelName="ข้อความ" classname="w-full -mt-10"
             :on-input="(e: Event): void => handleInput('message', e)" class=" col-span-2" :attributes="{
                 maxlength: 200,
                 minlength: 10

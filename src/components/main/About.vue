@@ -4,7 +4,9 @@ import Container from '../containers/Container.vue';
 import Title from '../Title.vue';
 import DownloadButton from '../DownloadButton.vue';
 import BackgroundLayer from '../BackgroundLayer.vue';
+import CircleIcon from '../CircleIcon.vue';
 import { UserProviderType } from '@/types';
+import { contactButtons } from '@/constants';
 
 const { user } = inject<UserProviderType>("user") as UserProviderType;
 </script>
@@ -12,7 +14,7 @@ const { user } = inject<UserProviderType>("user") as UserProviderType;
 <template>
     <Container classname="h-max mb-12 pt-12" id="about">
         <div class="flex items-start justify-between">
-            <div class="pt-12 w-1/2">
+            <div class="pt-8 w-1/2" data-aos="fade-right">
                 <Title title="About" />
                 <p class="font-k2d leading-8 w-full text-wrap text-tertiary">
                     สวัสดีเราชื่อ {{ user?.fullname }} รหัสนิสิต {{ user?.studentId }}
@@ -21,12 +23,16 @@ const { user } = inject<UserProviderType>("user") as UserProviderType;
                     เวลาว่าง {{ user?.hobbies }} เป้าหมายหลักในอนาคตต้องการเป็น Full Stack
                     Developer
                 </p>
+                <div class="w-1/2 flex items-center justify-between mt-4">
+                    <CircleIcon v-for="icon in contactButtons" :icon-path="icon.iconPath" :text="icon.text"
+                        :href="icon.href" :on-click="icon.onClick" />
+                </div>
                 <div class="mt-8">
                     <DownloadButton text="ดาวโหลด์ CV" to="/assets/cv/resume.pdf"
                         icon-path="assets/svgs/file-lines-solid.svg" />
                 </div>
             </div>
-            <div class="relative w-1/2">
+            <div class="relative w-1/2" data-aos="fade-left">
                 <img src="/assets/imgs/profile.jpg" alt="user-img"
                     class="w-[270px] h-[380px] z-10 border-8 border-transparent mx-auto" loading="lazy" />
                 <BackgroundLayer

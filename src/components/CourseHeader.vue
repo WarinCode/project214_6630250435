@@ -7,11 +7,11 @@ const { courses, gpaxObject } = inject<CourseProviderType>("course") as CoursePr
 </script>
 
 <template>
-    <p v-if="courses.length === 0" class="font-k2d mb-12 text-center">
+    <p v-if="courses.length === 0" class="font-k2d mb-12 text-center" data-aos="fade-left">
         ยังไม่มีรายวิชาที่นำมาแสดงในตอนนี้โปรดเพิ่มรายวิชาก่อน
     </p>
     <div v-else class="flex items-center justify-between mb-12">
-        <p class="font-k2d">ผลการเรียนทั้งหมด</p>
+        <p class="font-k2d" data-aos="fade-right">ผลการเรียนทั้งหมด</p>
         <GPAX :gpax="gpaxObject.gpax" />
     </div>
 </template>

@@ -10,7 +10,7 @@ import { skills } from '@/constants';
 <template>
     <Container classname="text-tertiary" id="skills">
         <Line classname="my-24" />
-        <div>
+        <div data-aos="fade-right">
             <Title title="Skills" />
             <p class="font-k2d leading-8">
                 Programming Languages, Frameworks, Libraries, IDEs และ Tools

@@ -58,6 +58,11 @@ export interface ActionButtonProps extends ButtonProps, IconProps, Partial<OnCli
     iconClassName?: string;
 }
 
+export interface CircleIconProps extends IconProps  {
+    href: string;
+    text: string
+}
+
 export interface LineProps extends ClassName { }
 export interface TitleProps extends TitleObject { }
 export interface SkillProps extends Skill { }

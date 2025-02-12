@@ -5,7 +5,7 @@ defineProps<InputWrapperProps>();
 </script>
 
 <template>
-    <div class="w-full" :class="classname">
+    <div class="w-full" :class="classname" data-aos="zoom-out-up">
         <slot></slot>
     </div>
 </template>

@@ -12,7 +12,7 @@ import AddDataForm from "../AddDataForm.vue";
     <Container classname="text-tertiary" id="academic-results">
         <CourseProvider>
             <Line classname="my-24" />
-            <div>
+            <div data-aos="fade-right">
                 <Title title="Academic Results" />
                 <p class="font-k2d mb-12">แบบฟอร์มสำหรับเพิ่มผลการเรียน</p>
             </div>

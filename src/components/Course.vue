@@ -18,7 +18,7 @@ const isOpen = ref<boolean>(false);
 const { open, close } = useModal({
     component: EditDataForm,
     attrs: {
-        title: 'แก้ไขข้อมูล',
+        title: "กำลังแก้ไขข้อมูล",
         ...course,
         onConfirm(): void {
             close();
@@ -75,7 +75,7 @@ const handleDelete = async (): Promise<void> => {
 
 <template>
     <ModalsContainer/>
-    <div class="font-k2d text-tertiary w-3/4 bg-zinc-900 rounded-lg mb-8 p-6 shadow" :id="id">
+    <div data-aos="flip-down" class="font-k2d text-tertiary w-3/4 bg-zinc-900 rounded-lg mb-8 p-6 shadow" :id="id">
         <div>
             <header class="w-full cursor-pointer text-lg translate-y-2 flex items-center justify-between"
                 @click="handleOpen">

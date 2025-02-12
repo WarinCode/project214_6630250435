@@ -14,7 +14,6 @@ import { SomeValue } from '@/types';
 const schools = ref<Schools>([]);
 const university = ref<UniversityModel | null>(null);
 const isError = ref<boolean>(false);
-
 const fetchEducation = async (): Promise<void> => {
     const url: string = getLocalhost();
 
@@ -47,13 +46,13 @@ onMounted(fetchEducation);
 <template>
     <Container classname="text-tertiary" id="education">
         <Line />
-        <div>
-            <Title title="Education" />
-            <p class="font-k2d leading-8">
-                โรงเรียนที่เรียนจบและสำเร็จการศึกษามาแล้วและมหาลัยที่กำลังศึกษาอยู่ ณ
-                ปัจจุบัน
-            </p>
-        </div>
+            <di data-aos="fade-right">
+                <Title title="Education" />
+                <p class="font-k2d leading-8">
+                    โรงเรียนที่เรียนจบและสำเร็จการศึกษามาแล้วและมหาลัยที่กำลังศึกษาอยู่ ณ
+                    ปัจจุบัน
+                </p>
+            </di>
         <div class="grid grid-cols-2 grid-rows-2 place-items-center gap-y-16 gap-x-4 mt-12">
             <template v-if="isError"></template>
             <template v-else>
