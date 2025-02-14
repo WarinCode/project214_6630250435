@@ -1,37 +1,115 @@
-<script lang="ts" setup>
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <div class="spinner"></div>
+    <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
 </template>
 
+<!-- https://10015.io/tools/css-loader-generator -->
 <style scoped>
 .spinner {
-    width: 120px;
-    height: 120px;
-    display: grid;
-    animation: spinner-plncf9 4s infinite;
+    position: absolute;
+    width: 11.5px;
+    height: 11.5px;
 }
 
-.spinner::before,
-.spinner::after {
-    content: "";
-    grid-area: 1/1;
-    border: 11.5px solid;
-    border-radius: 50%;
-    border-color: #42b883 #42b883 #0000 #0000;
-    mix-blend-mode: darken;
-    animation: spinner-plncf9 1s infinite linear;
+.spinner div {
+    position: absolute;
+    width: 50%;
+    height: 150%;
+    background: #42b883;
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+    animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
 }
 
-.spinner::after {
-    border-color: #0000 #0000 #35495e #35495e;
-    animation-direction: reverse;
+.spinner div:nth-child(1) {
+    --delay: 0.1;
+    --rotation: 36;
+    --translation: 150;
 }
 
-@keyframes spinner-plncf9 {
+.spinner div:nth-child(2) {
+    --delay: 0.2;
+    --rotation: 72;
+    --translation: 150;
+}
+
+.spinner div:nth-child(3) {
+    --delay: 0.3;
+    --rotation: 108;
+    --translation: 150;
+}
+
+.spinner div:nth-child(4) {
+    --delay: 0.4;
+    --rotation: 144;
+    --translation: 150;
+}
+
+.spinner div:nth-child(5) {
+    --delay: 0.5;
+    --rotation: 180;
+    --translation: 150;
+}
+
+.spinner div:nth-child(6) {
+    --delay: 0.6;
+    --rotation: 216;
+    --translation: 150;
+}
+
+.spinner div:nth-child(7) {
+    --delay: 0.7;
+    --rotation: 252;
+    --translation: 150;
+}
+
+.spinner div:nth-child(8) {
+    --delay: 0.8;
+    --rotation: 288;
+    --translation: 150;
+}
+
+.spinner div:nth-child(9) {
+    --delay: 0.9;
+    --rotation: 324;
+    --translation: 150;
+}
+
+.spinner div:nth-child(10) {
+    --delay: 1;
+    --rotation: 360;
+    --translation: 150;
+}
+
+@keyframes spinner-fzua35 {
+
+    0%,
+    10%,
+    20%,
+    30%,
+    50%,
+    60%,
+    70%,
+    80%,
+    90%,
     100% {
-        transform: rotate(1turn);
+        transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+    }
+
+    50% {
+        transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
     }
 }
 </style>

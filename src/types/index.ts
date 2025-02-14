@@ -1,6 +1,8 @@
 import { Ref } from "vue";
+import { AxiosResponse } from "axios";
 import UserModel from "./models/user";
-import CourseModel from "./models/course";
+import CourseModel, { Courses } from "./models/course";
+import SchoolModel from "./models/school";
 import { GPAXType } from "./models/gpa";
 import { Options } from "@emailjs/browser/es/types/Options";
 
@@ -62,4 +64,22 @@ export interface ContactDetails {
   email: string;
   message: string;
   date: string
+}
+
+export namespace ServerTypes {
+  export interface Course extends Omit<CourseModel, "id"> {
+    id: string;
+  }
+  export type Courses = Courses[];
+
+  export interface School extends Omit<SchoolModel, "id"> {
+    id: string;
+  }
+  export type Schools = School[];
+}
+export interface CRUD<T = Courses> {
+  get: (endpoint: string) => Promise<AxiosResponse<T>>;
+  post: (endpoint: string, payload: T) => Promise<AxiosResponse<T>>;
+  update: (endpoint: string, payload: T) => Promise<AxiosResponse<T>>;
+  delete: (endpoint: string) => Promise<AxiosResponse<T>>;
 }

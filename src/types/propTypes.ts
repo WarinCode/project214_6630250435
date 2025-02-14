@@ -28,7 +28,7 @@ interface InputComponentProps<T extends HTMLAttributes> extends ClassName {
 }
 
 export interface InputWrapperProps extends ClassName { }
-export interface FormContainerProps extends ClassName { 
+export interface FormContainerProps extends ClassName {
     onSubmit: () => void;
 }
 export interface InputFieldProps extends InputComponentProps<InputHTMLAttributes> {
@@ -38,7 +38,7 @@ export interface SelectFieldProps extends InputComponentProps<SelectHTMLAttribut
     optionList: string[] | number[];
 }
 
-export interface TextAreaFieldProps extends InputComponentProps<TextareaHTMLAttributes>{
+export interface TextAreaFieldProps extends InputComponentProps<TextareaHTMLAttributes> {
 
 }
 export interface ButtonProps extends ClassName {
@@ -58,7 +58,7 @@ export interface ActionButtonProps extends ButtonProps, IconProps, Partial<OnCli
     iconClassName?: string;
 }
 
-export interface CircleIconProps extends IconProps  {
+export interface CircleIconProps extends IconProps {
     href: string;
     text: string
 }
@@ -94,6 +94,6 @@ export interface GPAXProps {
     gpax: number
 }
 
-export interface EditDataFormProps extends CourseModel{
+export interface EditDataFormProps extends CourseModel {
     title: string;
 }

@@ -2,6 +2,7 @@
 import Loading from "./components/Loading.vue";
 import AppContainer from './components/containers/AppContainer.vue';
 import UserProvider from './components/providers/UserProvider.vue';
+import Hero from "./components/main/Hero.vue";
 import Navbar from './components/main/Navbar.vue';
 import About from './components/main/About.vue';
 import Education from './components/main/Education.vue';
@@ -12,7 +13,7 @@ import Footer from './components/main/Footer.vue';
 import ScrollToTop from "./components/ScrollToTop.vue";
 import useLoading from "./hooks/useLoading.ts";
 
-const { isLoading } = useLoading(0);
+const { isLoading } = useLoading(3);
 </script>
 
 <template>
@@ -21,6 +22,7 @@ const { isLoading } = useLoading(0);
   </AppContainer>
   <AppContainer v-else>
     <UserProvider>
+      <Hero />
       <Navbar />
       <About />
       <Education />

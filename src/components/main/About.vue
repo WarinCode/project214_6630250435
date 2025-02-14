@@ -20,8 +20,9 @@ const { user } = inject<UserProviderType>("user") as UserProviderType;
                     สวัสดีเราชื่อ {{ user?.fullname }} รหัสนิสิต {{ user?.studentId }}
                     นิสิตชั้นปีที่ {{ user?.sophomore }} คณะ {{ user?.faculty }} สาขา
                     {{ user?.major }} (CS27) {{ user?.university }} (KU83) อายุ {{ user?.age }} ปี
-                    เวลาว่าง {{ user?.hobbies }} เป้าหมายหลักในอนาคตต้องการเป็น Full Stack
-                    Developer
+                    เวลาว่าง {{ user?.hobbies }} เป้าหมายหลักในอนาคตต้องการเป็น <span class="text-ocean-green">Full
+                        Stack
+                        Developer</span>
                 </p>
                 <div class="w-1/2 flex items-center justify-between mt-4">
                     <CircleIcon v-for="icon in contactButtons" :icon-path="icon.iconPath" :text="icon.text"

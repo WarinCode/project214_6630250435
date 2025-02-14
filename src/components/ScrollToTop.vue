@@ -19,9 +19,15 @@ window.onscroll = handleScroll;
 
 <template>
     <div v-show="!isHidden"
-        class="bg-zinc-900 w-[50px] h-[50px] fixed bottom-8 right-8 rounded-xl cursor-pointer p-3 text-center animate-bounce"
+        class="bg-zinc-900 w-[50px] h-[50px] fixed bottom-8 right-8 rounded-xl cursor-pointer p-3 text-center animate-bounce hover:bg-ocean-green transition-colors delay-150 ease-linear"
         @click="handleClick">
         <Icon icon-path="assets/svgs/chevron-up-solid.svg"
             class="text-tertiary h-3 w-3 transition delay-100 ease-in-out" />
     </div>
 </template>
+
+<style scoped>
+div:hover>img {
+    filter: invert(0);
+}
+</style>

@@ -8,7 +8,7 @@ defineProps<DownloadButtonProps>();
 
 <template>
     <button :class="buttonStyled">
-        <a :href="to" :download="true" target="_blank" className="flex items-center justify-center">
+        <a :href="to" :download="true" target="_blank" class="flex items-center justify-center">
             <span>
                 <Icon :icon-path="iconPath"/>
             </span>
