@@ -2,8 +2,12 @@ import { Ref } from "vue";
 import CourseModel, { CourseRef } from "@/types/models/course"
 import { ContactRef, ContactDetails } from "@/types";
 
-export const getLocalhost = (): string => {
-    return "http://localhost:3000"
+export const getApiUrl = (): string => {
+    if(import.meta.env.DEV){
+        return "http://localhost:3000";
+    }
+
+    return "https://server-for-vue-portfolio.onrender.com/api";
 }
 
 export const getRefValue = <T>(param: Ref<T>): T => {

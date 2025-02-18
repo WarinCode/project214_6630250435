@@ -9,9 +9,9 @@ import ActionButton from './ActionButton.vue';
 import { CourseProviderType } from "@/types";
 import CourseModel, { CourseRef } from '@/types/models/course';
 import { grades, credits } from '@/constants';
-import { getRefValues, getCurrentId, formValidation, getLocalhost } from "@/utils";
+import { getRefValues, getCurrentId, formValidation, getApiUrl } from "@/utils";
 
-const { courses, fetchData } = inject<CourseProviderType>("course") as CourseProviderType;
+const { courses, fetching } = inject<CourseProviderType>("course") as CourseProviderType;
 
 const course: CourseRef = {
     id: ref<string>(""),
@@ -51,11 +51,11 @@ const handleSubmit = async (): Promise<void> => {
     try {
         formValidation(payload, courses.value);
 
-        const url = getLocalhost() + "/courses";
+        const url = getApiUrl() + "/courses";
         const { status } = await axios.post<CourseModel>(url, payload);
 
         if (status === HttpStatusCode.Created) {
-            await fetchData<CourseModel[]>(url, courses);
+            await fetching<CourseModel[]>(url, courses);
             await Swal.fire({
                 title: "สำเร็จ",
                 text: "เพิ่มรายวิชาใหม่สำเร็จ",

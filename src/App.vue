@@ -2,7 +2,6 @@
 import Loading from "./components/Loading.vue";
 import AppContainer from './components/containers/AppContainer.vue';
 import UserProvider from './components/providers/UserProvider.vue';
-import Hero from "./components/main/Hero.vue";
 import Navbar from './components/main/Navbar.vue';
 import About from './components/main/About.vue';
 import Education from './components/main/Education.vue';
@@ -22,7 +21,6 @@ const { isLoading } = useLoading(3);
   </AppContainer>
   <AppContainer v-else>
     <UserProvider>
-      <Hero />
       <Navbar />
       <About />
       <Education />

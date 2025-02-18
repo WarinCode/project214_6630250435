@@ -11,7 +11,6 @@ import "@emailjs/browser"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import "aos/dist/aos.js"
-
 AOS.init();
 
 const app: A<Element> = createApp(App);

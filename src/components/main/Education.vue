@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, Ref } from 'vue';
-import axios, { AxiosResponse, AxiosError, HttpStatusCode } from "axios";
+import { ref, onMounted } from 'vue';
 import Container from '../containers/Container.vue';
 import Title from '../Title.vue';
 import Line from '../Line.vue';
@@ -8,51 +7,42 @@ import UniversityCard from '../UniversityCard.vue';
 import SchoolCard from '../SchoolCard.vue';
 import { Schools } from '@/types/models/school';
 import UniversityModel from '@/types/models/university';
-import { getLocalhost } from '@/utils';
-import { SomeValue } from '@/types';
+import { getApiUrl } from '@/utils';
+import useFetchAll from '@/hooks/useFetchAll';
 
 const schools = ref<Schools>([]);
 const university = ref<UniversityModel | null>(null);
 const isError = ref<boolean>(false);
-const fetchEducation = async (): Promise<void> => {
-    const url: string = getLocalhost();
 
-    try {
-        const responses: [Promise<AxiosResponse<Schools>>, Promise<AxiosResponse<UniversityModel>>] = [
-            axios.get<Schools>(url + "/schools"),
-            axios.get<UniversityModel>(url + "/university")
-        ]
-        const refs: [Ref<Schools>, Ref<UniversityModel | null>] = [schools, university];
-        let i: number = 0;
-
-        for await (const { data, status } of responses) {
-            if (status === HttpStatusCode.Ok) {
-                refs[i].value = <SomeValue<UniversityModel | Schools | null>>data;
+onMounted((): void => {
+    (async (): Promise<void> => {
+        try {
+            await useFetchAll<Schools | UniversityModel | null>(
+                [getApiUrl() + "/schools", getApiUrl() + "/university"],
+                [schools, university]
+            );
+            isError.value = false;
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                console.error(e);
+                isError.value = true;
             }
-            i++;
         }
-    } catch (e: unknown) {
-        if (e instanceof AxiosError) {
-            isError.value = true;
-            console.error(e);
-        }
-    }
-}
-
-onMounted(fetchEducation);
+    })();
+});
 
 </script>
 
 <template>
     <Container classname="text-tertiary" id="education">
         <Line />
-            <di data-aos="fade-right">
-                <Title title="Education" />
-                <p class="font-k2d leading-8">
-                    โรงเรียนที่เรียนจบและสำเร็จการศึกษามาแล้วและมหาลัยที่กำลังศึกษาอยู่ ณ
-                    ปัจจุบัน
-                </p>
-            </di>
+        <di data-aos="fade-right">
+            <Title title="Education" />
+            <p class="font-k2d leading-8">
+                โรงเรียนที่เรียนจบและสำเร็จการศึกษามาแล้วและมหาลัยที่กำลังศึกษาอยู่ ณ
+                ปัจจุบัน
+            </p>
+        </di>
         <div class="grid grid-cols-2 grid-rows-2 place-items-center gap-y-16 gap-x-4 mt-12">
             <template v-if="isError"></template>
             <template v-else>

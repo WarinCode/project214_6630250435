@@ -1,8 +1,6 @@
 import { Ref } from "vue";
-import { AxiosResponse } from "axios";
 import UserModel from "./models/user";
-import CourseModel, { Courses } from "./models/course";
-import SchoolModel from "./models/school";
+import CourseModel from "./models/course";
 import { GPAXType } from "./models/gpa";
 import { Options } from "@emailjs/browser/es/types/Options";
 
@@ -24,8 +22,6 @@ export interface CardData<T extends object> {
   data: T;
 }
 
-export type SomeValue<T> = T | any | unknown;
-
 export interface UserProviderType {
   user: Ref<UserModel | null>;
   isError: Ref<boolean>;
@@ -34,7 +30,7 @@ export interface UserProviderType {
 export interface CourseProviderType {
   courses: Ref<CourseModel[]>;
   gpaxObject: Ref<GPAXType>;
-  fetchData: <T>(url: string, ref: Ref<T>) => Promise<void>;
+  fetching: <T>(url: string, ref: Ref<T>) => Promise<void>;
 }
 
 export interface IconType {
@@ -64,22 +60,4 @@ export interface ContactDetails {
   email: string;
   message: string;
   date: string
-}
-
-export namespace ServerTypes {
-  export interface Course extends Omit<CourseModel, "id"> {
-    id: string;
-  }
-  export type Courses = Courses[];
-
-  export interface School extends Omit<SchoolModel, "id"> {
-    id: string;
-  }
-  export type Schools = School[];
-}
-export interface CRUD<T = Courses> {
-  get: (endpoint: string) => Promise<AxiosResponse<T>>;
-  post: (endpoint: string, payload: T) => Promise<AxiosResponse<T>>;
-  update: (endpoint: string, payload: T) => Promise<AxiosResponse<T>>;
-  delete: (endpoint: string) => Promise<AxiosResponse<T>>;
 }

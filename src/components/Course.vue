@@ -7,12 +7,12 @@ import Line from './Line.vue';
 import Icon from './Icon.vue';
 import { CourseProps } from '@/types/propTypes';
 import { CourseProviderType } from '@/types';
-import { getLocalhost } from '@/utils';
+import { getApiUrl } from '@/utils';
 import CourseModel from '@/types/models/course';
 import EditDataForm from './EditDataForm.vue';
 
 const course = defineProps<CourseProps>();
-const { courses, fetchData } = inject<CourseProviderType>("course") as CourseProviderType;
+const { courses, fetching } = inject<CourseProviderType>("course") as CourseProviderType;
 const isOpen = ref<boolean>(false);
 
 const { open, close } = useModal({
@@ -44,12 +44,12 @@ const handleDelete = async (): Promise<void> => {
         return;
     }
 
-    const url: string = `${getLocalhost()}/courses`;
+    const url: string = `${getApiUrl()}/courses`;
     try {
         const { status, data } = await axios.delete<CourseModel>(url + `/${course.id}`);
 
         if (status === HttpStatusCode.Ok) {
-            await fetchData<CourseModel[]>(url, courses);
+            await fetching<CourseModel[]>(url, courses);
             await Swal.fire({
                 title: "สำเร็จ",
                 text: `ลบรายวิชา ${data.courseName} สำเร็จ`,

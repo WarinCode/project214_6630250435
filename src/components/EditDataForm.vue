@@ -12,11 +12,11 @@ import Line from "./Line.vue";
 import { EditDataFormProps } from '@/types/propTypes';
 import { grades, credits } from '@/constants';
 import { CourseRef } from "@/types/models/course";
-import { getRefValues, formValidation, getLocalhost } from "@/utils";
+import { getRefValues, formValidation, getApiUrl } from "@/utils";
 import CourseModel from "@/types/models/course";
 import { CourseProviderType } from "@/types";
 
-const { courses, fetchData } = inject<CourseProviderType>("course") as CourseProviderType;
+const { courses, fetching } = inject<CourseProviderType>("course") as CourseProviderType;
 const { id, courseName, courseCode, grade, credit } = defineProps<EditDataFormProps>();
 const emit = defineEmits<{
     (e: 'confirm'): void
@@ -47,7 +47,7 @@ const handleClose = async (): Promise<void> => {
 
 const handleEdit = async (): Promise<void> => {
     const payload: CourseModel = getRefValues(course);
-    const url: string = `${getLocalhost()}/courses`;
+    const url: string = `${getApiUrl()}/courses`;
 
     try {
         formValidation(payload, courses.value);
@@ -56,7 +56,7 @@ const handleEdit = async (): Promise<void> => {
 
         if (status === HttpStatusCode.Ok) {
             defaultValue.value = data;
-            await fetchData<CourseModel[]>(url, courses);
+            await fetching<CourseModel[]>(url, courses);
             await Swal.fire({
                 title: "สำเร็จ",
                 text: `แก้ไขรายวิชา ${data.courseName} สำเร็จ`,
