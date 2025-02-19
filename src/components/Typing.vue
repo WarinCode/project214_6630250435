@@ -2,11 +2,7 @@
 import { ref, onMounted } from "vue";
 import { TypingProps } from "@/types/propTypes";
 
-const { texts, typingSpeed, deletingSpeed, delayBetweenTexts } = withDefaults(defineProps<TypingProps>(), {
-    typingSpeed: 100,
-    deletingSpeed: 50,
-    delayBetweenTexts: 3000,
-});
+const { texts, typingSpeed = 100, deletingSpeed = 50, delayBetweenTexts = 3000 } = defineProps<TypingProps>();
 const displayedText = ref("");
 
 onMounted((): void => {

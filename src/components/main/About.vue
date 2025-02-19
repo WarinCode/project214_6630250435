@@ -22,8 +22,9 @@ const texts = ref<string[]>(["Frontend Developer", "Backend Developer", "Full St
                     สวัสดีเราชื่อ {{ user?.fullname }} รหัสนิสิต {{ user?.studentId }}
                     นิสิตชั้นปีที่ {{ user?.sophomore }} คณะ {{ user?.faculty }} สาขา
                     {{ user?.major }} (CS27) {{ user?.university }} (KU83) อายุ {{ user?.age }} ปี
-                    เวลาว่าง {{ user?.hobbies }} เป้าหมายหลักในอนาคตต้องการเป็น 
-                    <Typing :texts="texts" classname="text-ocean-green font-k2d"/>
+                    เวลาว่าง {{ user?.hobbies }} เป้าหมายหลักในอนาคตต้องการเป็น
+                    <Typing :texts="texts" classname="text-ocean-green font-k2d ms-1 font-bold" :typing-speed="50"
+                        :deleting-speed="30" />
                 </p>
                 <div class="w-1/2 flex items-center justify-between mt-4">
                     <CircleIcon v-for="icon in contactButtons" :icon-path="icon.iconPath" :text="icon.text"
