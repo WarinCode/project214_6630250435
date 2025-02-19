@@ -46,7 +46,7 @@ const handleDelete = async (): Promise<void> => {
 
     const url: string = `${getApiUrl()}/courses`;
     try {
-        const { status, data } = await axios.delete<CourseModel>(url + `/${course.id}`);
+        const { status, data } = await axios.delete<CourseModel>(url + `/delete/${course.id}`);
 
         if (status === HttpStatusCode.Ok) {
             await fetching<CourseModel[]>(url, courses);

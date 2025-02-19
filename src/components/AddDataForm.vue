@@ -52,7 +52,7 @@ const handleSubmit = async (): Promise<void> => {
         formValidation(payload, courses.value);
 
         const url: string = getApiUrl() + "/courses";
-        const { status } = await axios.post<CourseModel>(url, payload);
+        const { status } = await axios.post<CourseModel>(url + "/create", payload);
 
         if (status === HttpStatusCode.Created) {
             await fetching<CourseModel[]>(url, courses);

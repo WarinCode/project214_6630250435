@@ -3,7 +3,7 @@ import CourseModel, { CourseRef } from "@/types/models/course"
 import { ContactRef, ContactDetails } from "@/types";
 
 export const getApiUrl = (): string => {
-    return "http://localhost:3000";
+    return "http://localhost:3452/api";
 }
 
 export const getRefValue = <T>(param: Ref<T>): T => {

@@ -52,14 +52,13 @@ const handleEdit = async (): Promise<void> => {
     try {
         formValidation(payload, courses.value);
 
-        const { status, data } = await axios.put<CourseModel>(url + `/${id}`, payload);
+        const { status } = await axios.put(url + `/update/${id}`, payload);
 
         if (status === HttpStatusCode.Ok) {
-            defaultValue.value = data;
             await fetching<CourseModel[]>(url, courses);
             await Swal.fire({
                 title: "สำเร็จ",
-                text: `แก้ไขรายวิชา ${data.courseName} สำเร็จ`,
+                text: `แก้ไขรายวิชาสำเร็จ`,
                 icon: "success",
                 showConfirmButton: false,
                 timer: 2000
@@ -82,7 +81,9 @@ const handleEdit = async (): Promise<void> => {
 
 watchEffect((): void => {
     const filtered = courses.value.filter((item: CourseModel): boolean => item.id === id);
-    defaultValue.value = filtered[0];
+    if (filtered.length === 1) {
+        defaultValue.value = filtered[0];
+    }
 })
 </script>
 
