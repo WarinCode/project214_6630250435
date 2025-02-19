@@ -97,3 +97,10 @@ export interface GPAXProps {
 export interface EditDataFormProps extends CourseModel {
     title: string;
 }
+
+export interface TypingProps extends ClassName {
+    texts: string[];
+    typingSpeed?: number;
+    deletingSpeed?: number;
+    delayBetweenTexts?: number;
+}

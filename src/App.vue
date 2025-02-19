@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Loading from "./components/Loading.vue";
 import AppContainer from './components/containers/AppContainer.vue';
+import Hero from "./components/main/Hero.vue";
 import UserProvider from './components/providers/UserProvider.vue';
 import Navbar from './components/main/Navbar.vue';
 import About from './components/main/About.vue';
@@ -21,6 +22,7 @@ const { isLoading } = useLoading(3);
   </AppContainer>
   <AppContainer v-else>
     <UserProvider>
+      <Hero />
       <Navbar />
       <About />
       <Education />
