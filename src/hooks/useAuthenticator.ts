@@ -17,8 +17,13 @@ const useAuthenticator = (payload: UserLogin): VueCustomHook<UseAuthenticator> =
                 token.value = data.token;
                 isPending.value = false;
                 isSuccess.value = true;
-                useLocalStorage(ActionTypes.Create, "token", token.value);
             }
+
+            const { result } = useLocalStorage(ActionTypes.Read, "token");
+            if (result.value) {
+                useLocalStorage(ActionTypes.Delete, "token");
+            }
+            useLocalStorage(ActionTypes.Create, "token", <string>token.value);
         }).catch((err: unknown): void => {
             if (err instanceof Error || err instanceof AxiosError) {
                 console.error(err.message);

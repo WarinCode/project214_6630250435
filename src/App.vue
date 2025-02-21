@@ -21,7 +21,6 @@ const payload: UserLogin = {
   username: getEnv("VITE_USERNAME"),
   password: getEnv("VITE_PASSWORD")
 }
-
 const { isSuccess, isPending } = useAuthenticator(payload);
 </script>
 
