@@ -4,8 +4,12 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import CourseModel, { CourseRef } from "@/types/models/course"
 import { ContactRef, ContactDetails, ActionTypes } from "@/types";
 
+export const getDomain = (): string => {
+    return "http://localhost:3452";
+}
+
 export const getApiUrl = (): string => {
-    return "http://localhost:3452/api";
+    return getDomain() + "/api";
 }
 
 export const getRefValue = <T>(param: Ref<T>): T => {

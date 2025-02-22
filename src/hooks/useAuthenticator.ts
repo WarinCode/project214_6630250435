@@ -2,6 +2,7 @@ import { ref } from "vue";
 import axios, { AxiosResponse, AxiosError, HttpStatusCode } from "axios";
 import { VueCustomHook, UseAuthenticator } from "@/types/hooks";
 import { BearerToken, UserLogin, ActionTypes } from "@/types";
+import { getDomain } from "@/utils";
 import useLocalStorage from "./useLocalStorage";
 
 const useAuthenticator = (payload: UserLogin): VueCustomHook<UseAuthenticator> => {
@@ -11,7 +12,7 @@ const useAuthenticator = (payload: UserLogin): VueCustomHook<UseAuthenticator> =
 
     isPending.value = true;
 
-    axios.post<BearerToken>("http://localhost:3452/login", payload)
+    axios.post<BearerToken>(getDomain() + "/login", payload)
         .then(({ status, data }: AxiosResponse<BearerToken>) => {
             if (status === HttpStatusCode.Ok) {
                 token.value = data.token;
