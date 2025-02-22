@@ -7,12 +7,12 @@ defineProps<DownloadButtonProps>();
 </script>
 
 <template>
-    <button :class="buttonStyled">
+    <button class="max-[430px]:w-full" :class="buttonStyled">
         <a :href="to" :download="true" target="_blank" class="flex items-center justify-center">
             <span>
                 <Icon :icon-path="iconPath"/>
             </span>
-            <span className="ms-2 font-k2d">{{ text }}</span>
+            <span class="ms-2 font-k2d">{{ text }}</span>
         </a>
     </button>
 </template>

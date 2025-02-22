@@ -98,7 +98,7 @@ watchEffect((): void => {
         </header>
         <Line />
         <FormContainer :on-submit="handleEdit"
-            classname="grid grid-cols-2 grid-rows-3 place-items-center text-tertiary font-k2d gap-x-6 gap-y-8">
+            classname="grid grid-cols-2 grid-rows-3 place-items-center text-tertiary font-k2d gap-x-6 gap-y-8 max-[430px]:flex max-[430px]:flex-col max-[430px]:items-center">
             <InputField id="courseName2" label-name="ชื่อวิชา"
                 :on-input="(e: Event): void => handleInput('courseName', e)" :attributes="{
                     type: 'text',
@@ -117,7 +117,7 @@ watchEffect((): void => {
             <SelectField id="credit2" label-name="หน่วยกิต" :option-list="credits"
                 :on-input="(e: Event): void => handleInput('credit', e)" :value="defaultValue.credit"
                 classname="w-full" />
-            <ActionButton text="แก้ไข" classname="col-span-2 mt-4 w-[250px]" type="submit"
+            <ActionButton text="แก้ไข" classname="col-span-2 mt-4 w-[250px] max-[430px]:w-full" type="submit"
                 icon-path="assets/svgs/pen-to-square-regular.svg" icon-class-name="h-[18px] w-[18px]" />
         </FormContainer>
     </VueFinalModal>

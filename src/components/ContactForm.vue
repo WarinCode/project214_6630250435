@@ -64,24 +64,30 @@ const handleSendEmail = async (): Promise<void> => {
 </script>
 
 <template>
-    <FormContainer :on-submit="handleSendEmail" classname="grid grid-rows-3 grid-cols-2 font-k2d gap-x-32 gap-y-0">
+    <FormContainer :on-submit="handleSendEmail" classname="grid grid-rows-3 grid-cols-2 font-k2d gap-x-32 gap-y-0 max-[430px]:grid-cols-1 max-[430px]:flex max-[430px]:flex-col max-[430px]:items-center">
         <InputField id="senderName" labelName="ชื่อ" :on-input="(e: Event): void => handleInput('senderName', e)"
             :attributes="{
                 type: 'text',
                 maxlength: 50,
                 minlength: 2
-            }" />
+            }" 
+            classname="max-[430px]:mb-4"
+            />
         <InputField id="email" labelName="ที่อยู่อีเมล" :on-input="(e: Event): void => handleInput('email', e)"
             :attributes="{
                 type: 'email',
                 maxlength: 50,
-            }" />
-        <TextAreaField id="message" labelName="ข้อความ" classname="w-full -mt-10"
+            }" 
+            classname="max-[430px]:mb-4"
+            
+            />
+        <TextAreaField id="message" labelName="ข้อความ" classname="w-full -mt-10 max-[430px]:mt-0"
             :on-input="(e: Event): void => handleInput('message', e)" class=" col-span-2" :attributes="{
                 maxlength: 200,
                 minlength: 10
-            }" />
+            }" 
+            />
         <ActionButton type="submit" text="ส่ง" icon-path="assets/svgs/paper-plane-solid.svg"
-            classname="mt-10 mx-auto col-span-2 w-64" />
+            classname="mt-10 mx-auto col-span-2 w-64 max-[430px]:w-full" />
     </FormContainer>
 </template>

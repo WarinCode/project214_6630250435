@@ -40,7 +40,7 @@ const handleDelete = async (): Promise<void> => {
         cancelButtonText: "ไม่"
     })
 
-    if(!isConfirmed){
+    if (!isConfirmed) {
         return;
     }
 
@@ -74,12 +74,13 @@ const handleDelete = async (): Promise<void> => {
 </script>
 
 <template>
-    <ModalsContainer/>
-    <div data-aos="flip-down" class="font-k2d text-tertiary w-3/4 bg-zinc-900 rounded-lg mb-8 p-6 shadow" :id="id">
+    <ModalsContainer />
+    <div data-aos="flip-down"
+        class="font-k2d text-tertiary w-3/4 bg-zinc-900 rounded-lg mb-8 p-6 shadow max-[430px]:w-full" :id="id">
         <div>
             <header class="w-full cursor-pointer text-lg translate-y-2 flex items-center justify-between"
                 @click="handleOpen">
-                <p>{{ courseName }}</p>
+                <p class="max-[430px]:text-base">{{ courseName }}</p>
                 <Icon v-if="!isOpen" icon-path="assets/svgs/chevron-up-solid.svg" classname="h-3 w-3" />
                 <Icon v-else icon-path="assets/svgs/chevron-down-solid.svg" classname="h-3 w-3" />
             </header>

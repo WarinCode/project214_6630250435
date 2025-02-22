@@ -6,13 +6,13 @@ const isLine: boolean = text === "line"
 </script>
 
 <template>
-    <a v-if="isLine" class="w-14 h-14 p-2 rounded-full border-2 border-tertiary cursor-pointer bg-transparent"
+    <a v-if="isLine" class="w-14 h-14 p-2 rounded-full border-2 border-tertiary cursor-pointer bg-transparent max-[430px]:w-13 max-[430px]:h-13"
         :class="classname" @click="onClick">
-        <img :src="iconPath" class="w-6 h-6 mx-auto mt-[6px] invert">
+        <img :src="iconPath" class="w-6 h-6 mx-auto mt-[6px] invert max-[430px]:w-5 max-[430px]:h-5 max-[430px]:mt-2">
     </a>
-    <a v-else class="w-14 h-14 p-2 rounded-full border-2 border-tertiary cursor-pointer bg-transparent"
+    <a v-else class="w-14 h-14 p-2 rounded-full border-2 border-tertiary cursor-pointer bg-transparent max-[430px]:w-13 max-[430px]:h-13"
         :class="classname" :href="href" target="_blank">
-        <img :src="iconPath" class="w-6 h-6 mx-auto mt-[6px] invert">
+        <img :src="iconPath" class="w-6 h-6 mx-auto mt-[6px] invert max-[430px]:w-5 max-[430px]:h-5 max-[430px]:mt-2">
     </a>
 </template>
 

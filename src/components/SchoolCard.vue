@@ -12,14 +12,14 @@ defineProps<SchoolCardProps>();
 </script>
 
 <template>
-    <CardContainer classname="bg-primary w-[450px] h-[420px] overflow-hidden">
+    <CardContainer classname="bg-primary w-[450px] h-[420px] overflow-hidden max-[430px]:w-[330px] max-[430px]:h-auto">
         <CardImageTop :src="data.img" :alt="data.schoolName" />
         <CardBody>
             <template #card-body>
                 <CardHeader>
                     <template #card-header>
                         <CardTitle :title="data.schoolName" classname="text-base" />
-                        <span class="absolute right-4 text-secondary">
+                        <span class="absolute right-4 text-secondary max-[430px]:static max-[430px]:right-0">
                             <CardLink :href="data.location" icon-path="/assets/svgs/location-dot-solid.svg"
                                 classname="text-xl cursor-pointer" />
                             <CardLink :href="data.facebookLink"
