@@ -98,7 +98,8 @@ export interface GPAXProps {
     gpax: number
 }
 
-export interface EditDataFormProps extends CourseModel {
+export interface EditDataFormProps {
+    id: string;
     title: string;
 }
 

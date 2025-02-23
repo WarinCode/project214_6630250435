@@ -11,13 +11,22 @@ import AcademicResults from "./components/main/AcademicResults.vue";
 import Contact from './components/main/Contact.vue';
 import Footer from './components/main/Footer.vue';
 import ScrollToTop from "./components/ScrollToTop.vue";
+import { UserLogin } from "./types";
+import { getEnv } from "./utils";
 import useLoading from "./hooks/useLoading.ts";
+import useAuthenticator from "./hooks/useAuthenticator.ts";
 
-const { isLoading } = useLoading(3);
+const { isLoading } = useLoading(5);
+const payload: UserLogin = {
+  username: getEnv("VITE_USERNAME"),
+  password: getEnv("VITE_PASSWORD")
+}
+
+const { isSuccess, isPending } = useAuthenticator(payload);
 </script>
 
 <template>
-  <AppContainer v-if="isLoading" classname="h-screen w-full flex items-center justify-center">
+  <AppContainer v-if="isLoading || isPending || !isSuccess" classname="h-screen w-full flex items-center justify-center">
     <Loading />
   </AppContainer>
   <AppContainer v-else>

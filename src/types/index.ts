@@ -65,3 +65,26 @@ export interface ContactDetails {
 export interface ImageObject {
   [key: string]: boolean;
 }
+
+export interface MethodPutResponse {
+  success?: string;
+  message?: string;
+}
+
+export interface MethodDeleteResponse extends MethodPutResponse { }
+
+export interface UserLogin {
+  username: string;
+  password: string;
+}
+
+export interface BearerToken {
+  token: string;
+}
+
+export const enum ActionTypes {
+  Create = "Create",
+  Read = "Read",
+  Update = "Update",
+  Delete = "Delete"
+}

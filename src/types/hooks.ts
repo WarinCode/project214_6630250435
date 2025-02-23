@@ -20,3 +20,16 @@ export interface UseEmail {
 
 export type UseFetch = Promise<void>;
 export type UseFetchAll = UseFetch;
+
+export interface UseLocalStorage {
+    result: Ref<string | null>;
+    isCreated: Ref<boolean>;
+    isDeleted: Ref<boolean>;
+    isUpdated: Ref<boolean>;
+}
+
+export interface UseAuthenticator {
+    isPending: Ref<boolean>;
+    isSuccess: Ref<boolean>;
+    token: Ref<string | null>;
+}

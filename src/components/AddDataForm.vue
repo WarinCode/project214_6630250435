@@ -9,7 +9,7 @@ import ActionButton from './ActionButton.vue';
 import { CourseProviderType } from "@/types";
 import CourseModel, { CourseRef } from '@/types/models/course';
 import { grades, credits } from '@/constants';
-import { getRefValues, getCurrentId, formValidation, getApiUrl } from "@/utils";
+import { getRefValues, getCurrentId, formValidation, getApiUrl, getAxiosConfigs } from "@/utils";
 
 const { courses, fetching } = inject<CourseProviderType>("course") as CourseProviderType;
 
@@ -52,7 +52,7 @@ const handleSubmit = async (): Promise<void> => {
         formValidation(payload, courses.value);
 
         const url: string = getApiUrl() + "/courses";
-        const { status } = await axios.post<CourseModel>(url + "/create", payload);
+        const { status } = await axios.post<CourseModel>(url + "/create", payload, getAxiosConfigs());
 
         if (status === HttpStatusCode.Created) {
             await fetching<CourseModel[]>(url, courses);

@@ -6,8 +6,8 @@ import Swal from 'sweetalert2';
 import Line from './Line.vue';
 import Icon from './Icon.vue';
 import { CourseProps } from '@/types/propTypes';
-import { CourseProviderType } from '@/types';
-import { getApiUrl } from '@/utils';
+import { CourseProviderType, MethodDeleteResponse } from '@/types';
+import { getApiUrl, getAxiosConfigs } from '@/utils';
 import CourseModel from '@/types/models/course';
 import EditDataForm from './EditDataForm.vue';
 
@@ -19,7 +19,7 @@ const { open, close } = useModal({
     component: EditDataForm,
     attrs: {
         title: "กำลังแก้ไขข้อมูล",
-        ...course,
+        id: course.id,
         onConfirm(): void {
             close();
         },
@@ -46,13 +46,13 @@ const handleDelete = async (): Promise<void> => {
 
     const url: string = `${getApiUrl()}/courses`;
     try {
-        const { status, data } = await axios.delete<CourseModel>(url + `/delete/${course.id}`);
+        const { status, data } = await axios.delete<MethodDeleteResponse>(url + `/delete/${course.id}`, getAxiosConfigs());
 
         if (status === HttpStatusCode.Ok) {
             await fetching<CourseModel[]>(url, courses);
             await Swal.fire({
                 title: "สำเร็จ",
-                text: `ลบรายวิชา ${data.courseName} สำเร็จ`,
+                text: data?.success,
                 icon: "success",
                 showConfirmButton: false,
                 timer: 2000

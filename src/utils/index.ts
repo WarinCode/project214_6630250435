@@ -1,6 +1,8 @@
 import { Ref } from "vue";
+import { AxiosRequestConfig } from "axios";
+import useLocalStorage from "@/hooks/useLocalStorage";
 import CourseModel, { CourseRef } from "@/types/models/course"
-import { ContactRef, ContactDetails } from "@/types";
+import { ContactRef, ContactDetails, ActionTypes } from "@/types";
 
 export const getApiUrl = (): string => {
     return "http://localhost:3452/api";
@@ -64,5 +66,15 @@ export const getContactDetails = (contact: ContactRef): ContactDetails => {
         email: getRefValue<string>(contact.email),
         message: getRefValue<string>(contact.message),
         date: getRefValue<string>(contact.date)
+    }
+}
+
+export const getAxiosConfigs = (): AxiosRequestConfig => {
+    const { result } = useLocalStorage(ActionTypes.Read, "token");
+    
+    return {
+        headers: {
+            Authorization: result.value 
+        }
     }
 }

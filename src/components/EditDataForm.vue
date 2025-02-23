@@ -12,24 +12,24 @@ import Line from "./Line.vue";
 import { EditDataFormProps } from '@/types/propTypes';
 import { grades, credits } from '@/constants';
 import { CourseRef } from "@/types/models/course";
-import { getRefValues, formValidation, getApiUrl } from "@/utils";
+import { getRefValues, formValidation, getApiUrl, getAxiosConfigs } from "@/utils";
 import CourseModel from "@/types/models/course";
-import { CourseProviderType } from "@/types";
+import { CourseProviderType, MethodPutResponse } from "@/types";
 
 const { courses, fetching } = inject<CourseProviderType>("course") as CourseProviderType;
-const { id, courseName, courseCode, grade, credit } = defineProps<EditDataFormProps>();
+const { id } = defineProps<EditDataFormProps>();
 const emit = defineEmits<{
     (e: 'confirm'): void
 }>();
 
-const defaultValue = ref<CourseModel>({ id, courseName, courseCode, grade, credit });
+const defaultValue = ref<CourseModel>((courses.value.filter((c: CourseModel): boolean => c.id === id))[0]);
 
 const course: CourseRef = {
     id: ref<string>(id),
-    courseName: ref<string>(courseName),
-    courseCode: ref<string>(courseCode),
-    grade: ref<string>(grade),
-    credit: ref<number>(credit)
+    courseName: ref<string>(defaultValue.value.courseName),
+    courseCode: ref<string>(defaultValue.value.courseCode),
+    grade: ref<string>(defaultValue.value.grade),
+    credit: ref<number>(defaultValue.value.credit)
 }
 
 const handleInput = (key: keyof CourseRef, e: Event): void => {
@@ -52,13 +52,13 @@ const handleEdit = async (): Promise<void> => {
     try {
         formValidation(payload, courses.value);
 
-        const { status } = await axios.put(url + `/update/${id}`, payload);
+        const { status, data } = await axios.put<MethodPutResponse>(url + `/update/${id}`, payload, getAxiosConfigs());
 
         if (status === HttpStatusCode.Ok) {
             await fetching<CourseModel[]>(url, courses);
             await Swal.fire({
                 title: "สำเร็จ",
-                text: `แก้ไขรายวิชาสำเร็จ`,
+                text: data?.success,
                 icon: "success",
                 showConfirmButton: false,
                 timer: 2000
