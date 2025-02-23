@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Loading from "./components/Loading.vue";
 import AppContainer from './components/containers/AppContainer.vue';
-// import Hero from "./components/main/Hero.vue";
+import Hero from "./components/main/Hero.vue";
 import UserProvider from './components/providers/UserProvider.vue';
 import Navbar from './components/main/Navbar.vue';
 import About from './components/main/About.vue';
@@ -30,7 +30,7 @@ const { isSuccess, isPending } = useAuthenticator(payload);
   </AppContainer>
   <AppContainer v-else>
     <UserProvider>
-      <!-- <Hero /> -->
+      <Hero />
       <Navbar />
       <About />
       <Education />
