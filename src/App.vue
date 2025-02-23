@@ -17,7 +17,7 @@ const { isLoading } = useLoading(3);
 </script>
 
 <template>
-  <AppContainer v-if="isLoading" classname="h-screen w-full flex items-center justify-center">
+  <AppContainer v-if="false" classname="h-screen w-full flex items-center justify-center">
     <Loading />
   </AppContainer>
   <AppContainer v-else>

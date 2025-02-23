@@ -61,3 +61,7 @@ export interface ContactDetails {
   message: string;
   date: string
 }
+
+export interface ImageObject {
+  [key: string]: boolean;
+}

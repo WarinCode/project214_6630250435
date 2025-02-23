@@ -8,6 +8,10 @@ interface ClassName {
     classname?: string;
 }
 
+interface ClassBinding {
+    [key: string]: boolean;
+}
+
 export interface AppContainerProps extends ClassName { }
 
 export interface ContainerProps extends ClassName {
@@ -104,3 +108,10 @@ export interface TypingProps extends ClassName {
     deletingSpeed?: number;
     delayBetweenTexts?: number;
 }
+
+export interface ImageCarouselProps extends ClassName {
+    images: string[];
+    delay?: number;
+}
+
+export interface MobileMenuProps extends ClassName {}

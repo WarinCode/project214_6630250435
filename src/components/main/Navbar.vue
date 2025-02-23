@@ -16,13 +16,12 @@ const handleOpen = (): void => {
 </script>
 
 <template>
-    <nav
-        class="flex flex-col p-6 w-full sticky -top-1 h-20 z-50 px-28 backdrop-blur-lg max-[430px]:px-12"
-        :class="{ 'h-max': isOpen }"
-        >
+    <nav class="flex flex-col p-6 w-full sticky -top-1 h-20 z-50 px-28 backdrop-blur-lg max-[430px]:px-12"
+        :class="{ 'h-max': isOpen }">
         <div class="flex items-center justify-between">
             <div class="flex items-center w-1/2 cursor-default max-[430px]:w-full">
-                <img src="/assets/logo.svg" alt="vue-logo" class="w-12 h-12 transition delay-100 ease-in-out max-[430px]:w-10 max-[430px]:h-10" />
+                <img src="/assets/logo.svg" alt="vue-logo"
+                    class="w-12 h-12 transition delay-100 ease-in-out max-[430px]:w-10 max-[430px]:h-10" />
                 <h4 class="capitalize ms-3 text-2xl text-secondary tracking-wide max-[430px]:text-xl">
                     vue portfolio
                 </h4>
