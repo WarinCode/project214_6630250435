@@ -16,7 +16,7 @@ const handleOpen = (): void => {
 </script>
 
 <template>
-    <nav class="flex flex-col p-6 w-full sticky -top-1 h-20 z-50 px-28 backdrop-blur-lg max-[430px]:px-12"
+    <nav class="flex flex-col p-6 w-full sticky top-0 h-20 z-50 px-28 backdrop-blur-lg max-[430px]:px-12"
         :class="{ 'h-max': isOpen }">
         <div class="flex items-center justify-between">
             <div class="flex items-center w-1/2 cursor-default max-[430px]:w-full">
