@@ -150,4 +150,4 @@ export const buttonStyled: string = "w-56 h-14 bg-primary border-2 border-tertia
 export const typingTexts: string[] = ["ความสำเร็จคือผลรวมของการพัฒนาตัวเองในทุกๆ วัน",
     "ถ้าอยากไปให้ไกล ต้องเริ่มก้าวตั้งแต่วันนี้",
     "ความล้มเหลวไม่ใช่จุดจบ แต่เป็นบทเรียนสำหรับก้าวต่อไป"];
-export const images: string[] = ["assets/imgs/hero.jpg", "assets/imgs/hero2.jpg", "assets/imgs/hero3.jpg", "assets/imgs/hero4.jpg"];
+export const images: string[] = ["/assets/imgs/hero.jpg", "/assets/imgs/hero2.jpg", "/assets/imgs/hero3.jpg", "/assets/imgs/hero4.jpg"];
