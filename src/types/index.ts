@@ -62,10 +62,6 @@ export interface ContactDetails {
   date: string
 }
 
-export interface ImageObject {
-  [key: string]: boolean;
-}
-
 export interface MethodPutResponse {
   success?: string;
   message?: string;

@@ -110,9 +110,4 @@ export interface TypingProps extends ClassName {
     delayBetweenTexts?: number;
 }
 
-export interface ImageCarouselProps extends ClassName {
-    images: string[];
-    delay?: number;
-}
-
 export interface MobileMenuProps extends ClassName {}
