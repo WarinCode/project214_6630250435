@@ -8,7 +8,7 @@ import ContactForm from '../ContactForm.vue';
 </script>
 
 <template>
-    <Container classname="text-tertiary max-[430px]:px-12" id="contact">
+    <Container classname="text-tertiary max-[840px]:px-20 max-[430px]:px-12" id="contact">
         <Line />
         <div data-aos="fade-right">
             <Title title="Contact" />

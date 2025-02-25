@@ -6,7 +6,7 @@ defineProps<TitleProps>();
 
 <template>
     <h1
-        class="text-5xl font-bold bg-gradient-to-r from-ocean-green to-pickled-bluewood bg-clip-text text-transparent inline-block mb-8 max-[430px]:text-2xl">
+        class="text-5xl font-bold bg-gradient-to-r from-ocean-green to-pickled-bluewood bg-clip-text text-transparent inline-block mb-8 max-[840px]:text-4xl max-[430px]:text-2xl">
         < {{ title }} />
     </h1>
 </template>

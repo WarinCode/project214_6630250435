@@ -9,7 +9,7 @@ const year: number = new Date().getFullYear() + 543;
 </script>
 
 <template>
-    <Container classname="my-8 max-[430px]:px-12" id="footer">
+    <Container classname="my-8 max-[840px]:px-20 max-[430px]:px-12" id="footer">
         <Line classname="mt-8 mb-8 max-[430px]:mt-20" />
         <footer class="font-k2d text-tertiary text-center text-sm max-[430px]:text-xs">
             @Copyright {{ year }} | เขียนโค้ด และ ออกแบบโดย นาย {{ user?.fullname }}

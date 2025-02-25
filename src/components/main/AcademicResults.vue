@@ -9,7 +9,7 @@ import AddDataForm from "../AddDataForm.vue";
 </script>
 
 <template>
-    <Container classname="text-tertiary max-[430px]:px-12" id="academic-results">
+    <Container classname="text-tertiary max-[840px]:px-20 max-[430px]:px-12" id="academic-results">
         <CourseProvider>
             <Line classname="my-24" />
             <div data-aos="fade-right">

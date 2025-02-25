@@ -7,7 +7,7 @@ defineProps<DownloadButtonProps>();
 </script>
 
 <template>
-    <button class="max-[430px]:w-full" :class="buttonStyled">
+    <button class="max-[840px]:w-2/4 max-[430px]:w-full" :class="buttonStyled">
         <a :href="to" :download="true" target="_blank" class="flex items-center justify-center">
             <span>
                 <Icon :icon-path="iconPath"/>

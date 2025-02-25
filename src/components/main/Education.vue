@@ -34,7 +34,7 @@ onMounted((): void => {
 </script>
 
 <template>
-    <Container classname="text-tertiary max-[430px]:px-12" id="education">
+    <Container classname="text-tertiary max-[840px]:px-20 max-[430px]:px-12" id="education">
         <Line />
         <di data-aos="fade-right">
             <Title title="Education" />
@@ -43,7 +43,7 @@ onMounted((): void => {
                 ปัจจุบัน
             </p>
         </di>
-        <div class="grid grid-cols-2 grid-rows-2 place-items-center gap-y-16 gap-x-4 mt-12 max-[430px]:grid-cols-1 max-[430px]:grid-flow-row">
+        <div class="grid grid-cols-2 grid-rows-2 place-items-center gap-y-16 gap-x-4 mt-12 max-[840px]:grid-cols-1 max-[840px]:grid-flow-row max-[430px]:grid-cols-1 max-[430px]:grid-flow-row">
             <template v-if="isError"></template>
             <template v-else>
                 <SchoolCard v-for="school in schools" :data="school" />

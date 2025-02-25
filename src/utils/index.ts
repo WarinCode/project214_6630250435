@@ -5,6 +5,9 @@ import CourseModel, { CourseRef } from "@/types/models/course"
 import { ContactRef, ContactDetails, ActionTypes } from "@/types";
 
 export const getDomain = (): string => {
+    if(import.meta.env.DEV){
+        return "http://localhost:3452";
+    }
     return "https://server-for-vue-portfolio.onrender.com";
 }
 
