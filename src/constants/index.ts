@@ -87,8 +87,8 @@ export const skills: Skill[] = [
         path: "/assets/icons/Vite.js.svg",
     },
     {
-        name: "Azios",
-        path: "/assets/icons/Azios.svg",
+        name: "Axios",
+        path: "/assets/icons/Axios.svg",
     },
     {
         name: "Vercel",
