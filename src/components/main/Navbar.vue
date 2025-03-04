@@ -27,7 +27,8 @@ const handleOpen = (): void => {
                 </h4>
             </div>
             <div class="hidden max-[840px]:block max-[430px]:block" @click="handleOpen">
-                <Icon icon-path="assets/svgs/bars-solid.svg" classname="h-6 w-6" />
+                <Icon v-if="isOpen" icon-path="assets/svgs/xmark-solid.svg" classname="h-6 w-6" />
+                <Icon v-else icon-path="assets/svgs/bars-solid.svg" classname="h-6 w-6" />
             </div>
             <ul
                 class="flex items-center justify-evenly w-1/2 cursor-pointer tracking-wide max-[840px]:hidden max-[430px]:hidden">

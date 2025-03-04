@@ -76,7 +76,7 @@ const handleDelete = async (): Promise<void> => {
 <template>
     <ModalsContainer />
     <div data-aos="flip-down"
-        class="font-k2d text-tertiary w-3/4 bg-zinc-900 rounded-lg mb-8 p-6 shadow max-[840px]:w-4/5 max-[430px]:w-full" :id="id">
+        class="font-k2d text-tertiary w-3/4 bg-zinc-900 rounded-lg mb-8 p-6 shadow border-t-4 border-t-pickled-bluewood max-[840px]:w-4/5 max-[430px]:w-full" :id="id">
         <div>
             <header class="w-full cursor-pointer text-lg translate-y-2 flex items-center justify-between"
                 @click="handleOpen">

@@ -87,6 +87,14 @@ export const skills: Skill[] = [
         path: "/assets/icons/Vite.js.svg",
     },
     {
+        name: "Axios",
+        path: "/assets/icons/Axios.svg",
+    },
+    {
+        name: "Vercel",
+        path: "/assets/icons/Vercel.svg",
+    },
+    {
         name: "Postman",
         path: "/assets/icons/Postman.svg",
     },
