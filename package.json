@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite",
-    "server": "json-server --watch db/data.json",
+    "server": "json-server --watch data/db.json",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
