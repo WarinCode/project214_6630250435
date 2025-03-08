@@ -7,7 +7,7 @@ import { typingTexts } from "@/constants";
 const i = ref<number>(1);
 
 const changeBackground = (): void => {
-  if (i.value == 4) {
+  if (i.value === 4) {
     i.value = 1;
   } else {
     i.value++;

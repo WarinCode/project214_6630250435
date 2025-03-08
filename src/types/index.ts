@@ -22,15 +22,18 @@ export interface CardData<T extends object> {
   data: T;
 }
 
-export interface UserProviderType {
+interface DefaultProvider {
+  fetching: <T>(url: string, ref: Ref<T>) => Promise<void>;
+}
+
+export interface UserProviderType extends DefaultProvider{
   user: Ref<UserModel | null>;
   isError: Ref<boolean>;
 }
 
-export interface CourseProviderType {
+export interface CourseProviderType extends DefaultProvider {
   courses: Ref<CourseModel[]>;
   gpaxObject: Ref<GPAXType>;
-  fetching: <T>(url: string, ref: Ref<T>) => Promise<void>;
 }
 
 export interface IconType {
@@ -60,8 +63,4 @@ export interface ContactDetails {
   email: string;
   message: string;
   date: string
-}
-
-export interface ImageObject {
-  [key: string]: boolean;
 }

@@ -1,8 +1,9 @@
-import { InputHTMLAttributes, SelectHTMLAttributes, HTMLAttributes, Ref, VNodeRef, TextareaHTMLAttributes } from "vue";
+import { InputHTMLAttributes, SelectHTMLAttributes, HTMLAttributes, TextareaHTMLAttributes } from "vue";
 import { TitleObject, Skill, NavItemData, CardData, IconType, OnClick } from ".";
-import CourseModel, { Courses } from "./models/course";
+import CourseModel from "./models/course";
 import SchoolModel from "./models/school";
 import UniversityModel from "./models/university";
+import { UserModel2 } from "./models/user";
 
 interface ClassName {
     classname?: string;
@@ -109,4 +110,6 @@ export interface TypingProps extends ClassName {
     delayBetweenTexts?: number;
 }
 
-export interface MobileMenuProps extends ClassName {}
+export interface MobileMenuProps extends ClassName { }
+
+export interface EditUserFormProps extends TitleObject { }
