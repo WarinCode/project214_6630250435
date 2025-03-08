@@ -6,7 +6,7 @@ import { ContactRef, ContactDetails, ActionTypes } from "@/types";
 import UserModel, { UserModel2, UserRef } from "@/types/models/user";
 
 export const getDomain = (): string => {
-    if(import.meta.env.DEV){
+    if (import.meta.env.DEV) {
         return "http://localhost:3452";
     }
     return "https://server-for-vue-portfolio.onrender.com";
@@ -113,10 +113,10 @@ export const getContactDetails = (contact: ContactRef): ContactDetails => {
 
 export const getAxiosConfigs = (): AxiosRequestConfig => {
     const { result } = useLocalStorage(ActionTypes.Read, "token");
-    
+
     return {
         headers: {
-            Authorization: result.value 
+            Authorization: result.value
         }
     }
 }

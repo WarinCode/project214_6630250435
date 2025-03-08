@@ -100,7 +100,7 @@ const handleSubmit = async (): Promise<void> => {
             :on-input="(e: Event): void => handleInput('grade', e)" classname="max-[430px]:mb-4" />
         <SelectField id="credit" label-name="หน่วยกิต" :option-list="credits"
             :on-input="(e: Event): void => handleInput('credit', e)" classname="max-[430px]:mb-8" />
-        <ActionButton text="บันทึก" classname="col-span-2 mt-4 w-[250px] max-[840px]:w-2/4 max-[430px]:w-full" type="submit"
-            icon-path="assets/svgs/plus-solid.svg" icon-class-name="h-[18px] w-[18px]" />
+        <ActionButton text="บันทึก" classname="col-span-2 mt-4 w-[250px] max-[840px]:w-2/4 max-[430px]:w-full"
+            type="submit" icon-path="assets/svgs/plus-solid.svg" icon-class-name="h-[18px] w-[18px]" />
     </FormContainer>
 </template>

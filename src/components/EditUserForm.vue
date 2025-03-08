@@ -43,7 +43,6 @@ const handleClose = async (): Promise<void> => {
 
 const handleEdit = async (): Promise<void> => {
     const payload: UserModel = { ...user.value as UserModel, ...getUserData(userRef) };
-    console.log(payload)
     const url: string = getApiUrl() + "/user";
 
     try {
