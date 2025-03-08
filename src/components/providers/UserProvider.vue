@@ -8,7 +8,7 @@ import useFetch from "@/hooks/useFetch";
 const user = ref<UserModel | null>(null);
 const isError = ref<boolean>(false);
 
-provide<UserProviderType>("user", { user, isError });
+provide<UserProviderType>("user", { user, isError, fetching: useFetch });
 onMounted((): void => {
     (async (): Promise<void> => {
         try {

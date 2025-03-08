@@ -3,6 +3,7 @@ import { AxiosRequestConfig } from "axios";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import CourseModel, { CourseRef } from "@/types/models/course"
 import { ContactRef, ContactDetails, ActionTypes } from "@/types";
+import UserModel, { UserModel2, UserRef } from "@/types/models/user";
 
 export const getDomain = (): string => {
     if(import.meta.env.DEV){
@@ -63,6 +64,40 @@ export const formValidation = ({ id, courseName, courseCode }: CourseModel, cour
     }
 }
 
+export const validateUserData = ({ fullname, studentId, major, faculty }: UserModel): void => {
+    if (fullname.length === 0) {
+        throw new Error("โปรดกรอกชื่อ!");
+    }
+
+    if (major.length === 0) {
+        throw new Error("โปรดกรอกสาขา!");
+    }
+
+    if (faculty.length === 0) {
+        throw new Error("โปรดกรอกคณะ!");
+    }
+
+    for (let i: number = 0; i < fullname.length; i++) {
+        if (fullname.startsWith(i.toString())) {
+            throw new Error("ชื่อไม่สามารถขึ้นต้นด้วยตัวเลขได้!");
+        }
+    }
+
+    if (isNaN(studentId)) {
+        throw new Error("รหัสนิสิตต้องเป็นตัวเลขเท่านั้น!");
+    }
+
+    for (let j: number = 0; j < 10; j++) {
+        if (isNaN(parseInt(String(studentId)[j]))) {
+            throw new Error("รหัสนิสิตต้องเป็นตัวเลขเท่านั้น!");
+        }
+    }
+
+    if (String(studentId).length < 10) {
+        throw new Error("รหัสนิสิตต้องมีความยาวเท่ากับ 10!");
+    }
+}
+
 export const getEnv = (key: keyof ImportMetaEnv): string => {
     return import.meta.env[key];
 }
@@ -83,5 +118,14 @@ export const getAxiosConfigs = (): AxiosRequestConfig => {
         headers: {
             Authorization: result.value 
         }
+    }
+}
+
+export const getUserData = (user: UserRef): UserModel2 => {
+    return {
+        fullname: getRefValue<string>(user.fullname),
+        studentId: getRefValue<number>(user.studentId),
+        faculty: getRefValue<string>(user.faculty),
+        major: getRefValue<string>(user.major)
     }
 }

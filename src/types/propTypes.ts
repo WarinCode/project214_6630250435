@@ -111,3 +111,4 @@ export interface TypingProps extends ClassName {
 }
 
 export interface MobileMenuProps extends ClassName {}
+export interface EditUserFormProps extends TitleObject {}

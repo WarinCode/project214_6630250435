@@ -16,7 +16,7 @@ import { getEnv } from "./utils";
 import useLoading from "./hooks/useLoading.ts";
 import useAuthenticator from "./hooks/useAuthenticator.ts";
 
-const { isLoading } = useLoading(5);
+const { isLoading } = useLoading(3);
 const payload: UserLogin = {
   username: getEnv("VITE_USERNAME"),
   password: getEnv("VITE_PASSWORD")
