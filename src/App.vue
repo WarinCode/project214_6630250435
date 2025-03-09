@@ -25,7 +25,7 @@ const { isSuccess, isPending } = useAuthenticator(payload);
 </script>
 
 <template>
-  <AppContainer v-if="isLoading || isPending || !isSuccess" classname="h-screen w-full flex items-center justify-center">
+  <AppContainer v-if="isPending || !isSuccess" classname="h-screen w-full flex items-center justify-center">
     <Loading />
   </AppContainer>
   <AppContainer v-else>
